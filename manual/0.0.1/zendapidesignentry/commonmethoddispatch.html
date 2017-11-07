@@ -1,0 +1,320 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>原生类方法派发原理详细文档-zendAPI 手册</title><link rel="icon" href="/zendapi.ico" type="image/ico"><link rel="stylesheet" href="/statics/js/uikit/css/uikit.min.css"><link rel="stylesheet" href="/statics/css/base.css"><link rel="stylesheet" href="/statics/css/manual.css"><script type="text/javascript" src="//statics/js/jquery/jquery-3.2.1.min.js"></script><script type="text/javascript" src="//statics/js/uikit/js/uikit.min.js"></script><script type="text/javascript" src="//statics/js/uikit/js/uikit-icons.min.js"></script><script type="text/javascript" src="//statics/js/highlight/highlight.pack.js"></script><link rel="stylesheet" href="/statics/js/highlight/styles/railscasts.css"></head><body><script type="application/javascript"></script><div class="uk-offcanvas-content"><div id="header-wrapper" class="uk-container uk-margin-remove uk-container-expand site-header" uk-sticky="show-on-up: true; animation: uk-animation-slide-top;"><nav class="uk-navbar-container uk-margin-remove" uk-navbar><div class="uk-navbar-left"><div class="logo"><a href="/"><img src="//statics/images/zendapi.svg"></a></div></div><div class="uk-navbar-right"><ul class="uk-navbar-nav uk-visible@m"><li><a href="/">网站首页</a></li><li><a href="/manual">手册</a></li><li><a href="/api">API文档</a></li><li><a href="/blog">博客</a></li><li><a href="/about">关于我们</a></li></ul><ul class="uk-navbar-nav uk-hidden@m"><li><button class="nav-menu" data-uk-icon="icon: menu" uk-toggle="target: #offcanvas-push"></button></li></ul></div></nav></div><div id="container" style="width:100%"><div class="uk-container uk-margin-small-top uk-margin-small-bottom manual-page-container"><div class="manual-container uk-flex uk-flex-left"><div class="catalog uk-visible@m"><ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false"><li class="uk-parent"><a>序言</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/prologue/introduction.html">zendAPI 项目介绍</a></li><li><a href="/manual/0.0.1/prologue/releasenotes.html">版本发布说明</a></li><li><a href="/manual/0.0.1/prologue/repobranchdesc.html">版本库分支标准</a></li><li><a href="/manual/0.0.1/prologue/contributionguide.html">如何贡献代码</a></li></ul></li><li class="uk-parent"><a>编译与部署</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/compileanddeploy/dependdesc.html">依赖环境详细说明</a></li><li><a href="/manual/0.0.1/compileanddeploy/preparedevelhost.html">开发环境构建</a></li><li><a href="/manual/0.0.1/compileanddeploy/cmakevardesc.html">CMake 参数详解</a></li><li><a href="/manual/0.0.1/compileanddeploy/compilezendapi.html">编译 zendAPI</a></li></ul></li><li class="uk-parent"><a>新手学堂</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/getstarted/prenewproject.html">项目准备工作</a></li><li><a href="/manual/0.0.1/getstarted/buildscriptdesc.html">项目编译脚本详解</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapientry.html">定义模块入口</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiconst.html">定义常量</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapifunction.html">定义原生函数</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiclass.html">自定义原生Class</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapinamespace.html">引入命名空间</a></li><li><a href="/manual/0.0.1/getstarted/registerinivars.html">注册 INI 变量</a></li><li><a href="/manual/0.0.1/getstarted/installhellozapiproject.html">安装 hello zapi 项目</a></li><li><a href="/manual/0.0.1/getstarted/installbydocker.html">使用 Docker 进行体验</a></li></ul></li><li class="uk-parent uk-open"><a>zendAPI 设计解析</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/zendapidesignentry/vocabularydesc.html">术语解释</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiwholedesign.html">整体架构设计解剖</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapinamespacedesc.html">命名空间说明</a></li><li><a href="/manual/0.0.1/zendapidesignentry/phpmoduleinitcycle.html">PHP 标准模块生命周期</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiinitcycle.html">初始化流程详解</a></li><li><a href="/manual/0.0.1/zendapidesignentry/datasturcturedesign.html">常见数据类型设计</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonfunctiondispatch.html">普通函数派发机制</a></li><li class="uk-active"><a href="/manual/0.0.1/zendapidesignentry/commonmethoddispatch.html">类方法派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/internalinterfaceimplemention.html">内部接口的实现</a></li><li><a href="/manual/0.0.1/zendapidesignentry/stddatastream.html">标准数据输出流</a></li></ul></li><li class="uk-parent"><a>扩展模块详解</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/moduleinitentry/defineextmodule.html">定义扩展模块</a></li><li><a href="/manual/0.0.1/moduleinitentry/moduleinitcallback.html">模块初始化回调函数</a></li></ul></li><li class="uk-parent"><a>命名空间</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/namespacedefentry/definenamespace.html">定义命名空间</a></li><li><a href="/manual/0.0.1/namespacedefentry/namespaceapply.html">命名空间的运用</a></li></ul></li><li class="uk-parent"><a>常量定义</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/rawconstdefentry/rawconstdef.html">常量定义</a></li><li><a href="/manual/0.0.1/rawconstdefentry/constandnamespace.html">常量与命名空间</a></li></ul></li><li class="uk-parent"><a>PHP 常见数据类型</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/commondatastureentry/generalvarwrapper.html">通用变量容器</a></li><li><a href="/manual/0.0.1/commondatastureentry/boolvariantwrapper.html">布尔数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/numericvariantwrapper.html">整型数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/stringvariantwrapper.html">字符串数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/arrayvariantwrapper.html">数组数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/floatvariantwrapper.html">浮点数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/functionvariantwrapper.html">函数数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/objectvariantwrapper.html">对象数据类型</a></li></ul></li><li class="uk-parent"><a>原生函数定义</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/internalfuncdefineentry/functionoverview.html">函数概述</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/argumentoffunction.html">函数参数定义</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionreturn.html">函数返回值</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionandnamespace.html">函数与命名空间</a></li></ul></li><li class="uk-parent"><a>面向对象特性支持</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/oopfeaturesupportentry/simpleclassdefine.html">类入门定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classpropertydefine.html">类属性定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmethoddefine.html">类方法定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmagicsupport.html">魔术方法支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/abstractclassandmethod.html">抽象类和抽象方法的定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/finalclassdef.html">final 类定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classextenddef.html">类继承定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classarrayacesssupport.html">类自定义 ArrayAccess 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classiteratorsupport.html">类迭代器支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classcountablesupport.html">countable 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classsserializablesupport.html">类序列化/反序列化支持</a></li></ul></li><li class="uk-parent"><a>扩展配置支持</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/extconfigsupportentry/definiconfig.html">定义 INI 配置</a></li></ul></li></ul></div><div class="uk-width-expand manual-doc-container"><h1 class="uk-article-title manual-title">原生类方法派发原理详细文档</h1><div class="uk-article manual-content uk-margin-medium-bottom uk-text-break"><p>在上一篇中我们介绍的普通函数的派发原理，这一篇我们开始介绍类中的方法派发原理，大家可能会有一种想法，就是觉得类中的方法派发比普通函数的派发要复杂很多，其实复杂肯定是要复杂点，但是也没有复杂多少。<br>在原生类方法派发中主要有如下几个步骤：</p><ol><li>原生类元信息的注册，让<code>Zend Engine</code>知道我们自定义的原生类的存在</li><li>类的实例的创建过程</li><li>基于<code>InvokeBridge</code>的类方法的派发</li></ol><p>现在我们详细说说上面三个步骤:</p><h4><a href="##yuan-sheng-lei-yuan-xin-xi-de-zhu-ce-rang-zend-engine-zhi-dao-wo-men-zi-ding-yi-de-yuan-sheng-lei-de-cun-zai" class="header-anchor">#</a><span id="yuan-sheng-lei-yuan-xin-xi-de-zhu-ce-rang-zend-engine-zhi-dao-wo-men-zi-ding-yi-de-yuan-sheng-lei-de-cun-zai">原生类元信息的注册，让<code>Zend Engine</code>知道我们自定义的原生类的存在</span></h4><p>在初始化扩展的时候，我们一般会调用相关的接口进行类的元信息的注册，主要有两个接口进行类元信息的注册：</p><ol><li>在<code>zapi::lang::Extension</code>中注册原生类元信息描述类</li><li>在<code>zapi::lang::Namespace</code>中注册原生类元信息描述类</li></ol><p>这个两个地方的接口定义是一样的，只不过情况1是在全局名称空间中注册一个原生类，一个是在是在指定的名称空间中注册一个原生类，下面我们以情况1为例讲解下相关代码：</p><pre><code class="cpp">﻿template &lt;typename T&gt;
+Extension &amp;Extension::registerClass(const Class&lt;T&gt; &amp;nativeClass)
+{
+   ZAPI_D(Extension);
+   if (implPtr-&gt;m_locked) {
+      return *this;
+   }
+   // just shadow copy 
+   implPtr-&gt;m_classes.push_back(
+        std::shared_ptr&lt;AbstractClass&gt;(new Class&lt;T&gt;(nativeClass)));
+   return *this;
+}
+</code></pre><p>代码很清晰，主要的作用就是将原生类元信息描述对象加入到扩展对象的内部存储起来。<br>然后我们看看元信息对象是在哪里加入到<code>Zend Engine</code>中的：</p><pre><code class="cpp">﻿bool ExtensionPrivate::initialize(int moduleNumber)
+{
+   m_zendIniDefs.reset(new zend_ini_entry_def[getIniQuantity() + 1]);
+   int i = 0;
+   // fill ini entry def
+   iterateIniEntries([this, &amp;i, moduleNumber](Ini &amp;iniEntry){
+      zend_ini_entry_def *zendIniDef = &amp;m_zendIniDefs[i];
+      iniEntry.setupIniDef(zendIniDef, moduleNumber);
+      i++;
+   });
+   memset(&amp;m_zendIniDefs[i], 0, sizeof(m_zendIniDefs[i]));
+   zend_register_ini_entries(m_zendIniDefs.get(), moduleNumber);
+
+   iterateConstants([moduleNumber](Constant &amp;constant) {
+      constant.initialize(moduleNumber);
+   });
+   // here we register all global classes and interfaces
+   iterateClasses([moduleNumber](AbstractClass &amp;cls) {
+      cls.initialize(moduleNumber);
+   });
+   // work with register namespaces
+
+   for (std::shared_ptr&lt;Namespace&gt; &amp;ns : m_namespaces) {
+      ns-&gt;initialize(moduleNumber);
+   }
+   // initialize closure class
+   zapi::vm::Closure::registerToZendNg(moduleNumber);
+
+   // remember that we&#39;re initialized (when you use &quot;apache reload&quot; it is
+   // possible that the processStartup() method is called more than once)
+   m_locked = true;
+   if (m_startupHandler) {
+      m_startupHandler();
+   }
+   return true;
+}
+</code></pre><p>这段代码在我们讲《<a href="zendapiinitcycle.html">zendAPI 初始化流程详解</a>》中出现过，我们在这里的重点就几行代码：</p><pre><code class="cpp">// here we register all global classes and interfaces
+iterateClasses([moduleNumber](AbstractClass &amp;cls) {
+    cls.initialize(moduleNumber);
+});
+</code></pre><p>在这里我们遍历我们注册的元信息描述对象，然后依次调用<code>initialize</code>方法。<br>下面我们分析下<code>initialize</code>方法，这个方法还是有一点小复杂</p><pre><code class="cpp">﻿zend_class_entry *AbstractClassPrivate::initialize(
+    AbstractClass *cls, 
+    const std::string &amp;ns, int moduleNumber)
+{
+   m_apiPtr = cls;
+   zend_class_entry entry;
+   if (ns.size() &gt; 0 &amp;&amp; ns != &quot;\\&quot;) {
+      m_name = ns + &quot;\\&quot; + m_name;
+   }
+   // initialize the class entry
+   INIT_CLASS_ENTRY_EX(entry, m_name.c_str(), m_name.size(), 
+                       getMethodEntries().get());
+   entry.create_object = &amp;AbstractClassPrivate::createObject;
+   entry.get_static_method = &amp;AbstractClassPrivate::getStaticMethod;
+   // check if traversable
+   if (m_apiPtr-&gt;traversable()) {
+      entry.get_iterator = &amp;AbstractClassPrivate::getIterator;
+      entry.iterator_funcs.funcs = IteratorBridge::getIteratorFuncs();
+   }
+
+   if (m_apiPtr-&gt;serializable()) {
+      entry.serialize = &amp;AbstractClassPrivate::serialize;
+      entry.unserialize = &amp;AbstractClassPrivate::unserialize;
+   }
+   // check if serializable
+   if (m_parent) {
+      if (m_parent-&gt;m_implPtr-&gt;m_classEntry) {
+         m_classEntry = zend_register_internal_class_ex(
+            &amp;entry, 
+            m_parent-&gt;m_implPtr-&gt;m_classEntry);
+      } else {
+         std::cerr &lt;&lt; &quot;Derived class &quot; &lt;&lt; m_name 
+                   &lt;&lt; &quot; is initialized before base class &quot; 
+                   &lt;&lt; m_parent-&gt;m_implPtr-&gt;m_name
+                   &lt;&lt; &quot;: base class is ignored&quot; &lt;&lt; std::endl;
+         // ignore base class
+         m_classEntry = zend_register_internal_class(&amp;entry);
+      }
+   } else {
+      m_classEntry = zend_register_internal_class(&amp;entry);
+   }
+   // register the interfaces of the class
+
+   for (std::shared_ptr&lt;AbstractClass&gt; &amp;interface : m_interfaces) {
+      if (interface-&gt;m_implPtr-&gt;m_classEntry) {
+         zend_do_implement_interface(m_classEntry, 
+                                     interface-&gt;m_implPtr-&gt;m_classEntry);
+      } else {
+         // interface that want to implement is not initialized
+         std::cerr &lt;&lt; &quot;Derived class &quot; &lt;&lt; m_name 
+                   &lt;&lt; &quot; is initialized before base class &quot;
+                   &lt;&lt; interface-&gt;m_implPtr-&gt;m_name
+                   &lt;&lt; &quot;: interface is ignored&quot;
+                   &lt;&lt; std::endl;
+      }
+   }
+   m_classEntry-&gt;ce_flags = static_cast&lt;uint32_t&gt;(m_type);
+   for (std::shared_ptr&lt;AbstractMember&gt; &amp;member : m_members) {
+      member-&gt;initialize(m_classEntry);
+   }
+   AbstractClassPrivate *selfPtr = this;
+   m_self.reset(zend_string_alloc(sizeof(this), 1));
+   // make the string look like empty
+   ZSTR_VAL(m_self)[0] = &#39;\0&#39;;
+   ZSTR_LEN(m_self) = 0;
+   std::memcpy(ZSTR_VAL(m_self.get()) + 1, &amp;selfPtr, sizeof(selfPtr));
+   // save into the doc_comment
+   m_classEntry-&gt;info.user.doc_comment = m_self.get();
+   return m_classEntry;
+}
+</code></pre><p>这个方法简单的来说，就是生成一个<code>zend_class_entry</code>对象，然后根据类的元信息描述对象的信息对<code>zend_class_entry</code>进行相关设置，然后将这个对象返回给<code>Zend Engine</code>。<br>首先简单介绍下<code>zend_class_entry</code>(<code>PHP 7.1.5</code>)一下几个重要的字段:</p><ol><li><code>name</code><br>类的名字，需要遵守<code>PHP</code>类的名字的命名规范，在<code>PHP</code>脚本中进行实例化就是使用这个类名字。</li><li><code>create_object</code><br>这个字段类型是函数指针类型，当<code>PHP</code>脚本中对类进行实例化的时候<code>Zend Engine</code>会首先调用这个函数指针所指的函数，这个函数必须创建<code>zend_object</code>对象并且返回其指针。这个对象就是<code>PHP</code>脚本里面类实例化后的对象的底层实现。</li><li><code>get_static_method</code><br>这个字段类型是函数指针类型，当<code>PHP</code>脚本中调用原生类的静态方法的时候<code>Zend Engine</code>会首先调用这个函数指针所指的函数，这个函数必须创建<code>_zend_function</code>对象并且返回其指针，<code>Zend Engine</code>会根据返回的<code>_zend_function</code>调用相关的原生类的静态方法。</li><li><code>get_closure</code><br>这个字段类型是函数指针类型，当<code>PHP</code>脚本中对一个对象进行类似函数调用的操作的时候<code>Zend Engine</code>会首先调用这个函数指针所指的函数，这个函数接受如下几个参数:(在这个函数里面我们主要通过<code>retfunc</code>指针将设置结果返回给<code>Zend Engine</code>)<ol><li>zval *object</li><li>zend_class_entry **entry</li><li>zend_function **retFunc</li><li>zend_object **objectPtr</li></ol></li><li><code>get_iterator</code><br>这个字段类型是函数指针类型，当在<code>PHP</code>脚本中，我们对原生类实例化的对象进行<code>foreach</code>调用的时候，<code>Zend Engine</code>会首先调用这个指针所指的函数，这个函数必须返回一个<code>zend_object_iterator</code>对象的指针，<code>Zend Engine</code>会根据返回的迭代器对象对原生类的对象进行相关的迭代。</li><li><code>serialize/unserialize</code><br>这个两个字段的类型是函数指针类型，当在<code>PHP</code>脚本中对我们的原生类对象实例进行序列化和反序列化的时候<code>Zend Engine</code>会调用这两个函数指针所指的对象的函数。</li><li><code>ce_flags</code><br>这个字符主要是保存原生类的类型的是否是抽象类，是否<code>final</code>等等。目前主要支持如下几种类型：<ol><li>Regular<br>普通原生类，绝大数情况都是这种情况</li><li>Abstract<br>抽象类，这种类型是不能直接实例化的</li><li>Final<br>Final类型的类不能被继承</li><li>Interface<br>接口类型</li><li>Trait<br>为了共用一些代码而发明的一种代码共用的类型</li></ol></li></ol><blockquote><p><a href="http://php.net/manual/en/language.oop5.traits.php" target="_blank" rel="external">PHP Traits 参考文档</a></p></blockquote><h4><a href="##lei-de-shi-li-de-chuang-jian-guo-cheng" class="header-anchor">#</a><span id="lei-de-shi-li-de-chuang-jian-guo-cheng">类的实例的创建过程</span></h4><p>大家都知道，我们要获取一个类的对象实例，在<code>PHP</code>脚本中调用<code>new</code>运算符就可以了，但是当我们实例化一个我们在扩展中定义的原生扩展函数的时候都进行了那些步骤，大家有了解过吗？如果没有的话，您可以好好阅读下本节知识，了解这个过程对我们开发扩展有好处。<br>大致的步骤可以分为三个步骤:</p><ol><li><code>Zend Engine</code>遇到对象实例化的请求代码，开始执行相关类型实例化的<code>OP Code</code></li><li><code>Zend Engine</code>调用我们预先注册的<code>entry.create_object</code><pre><code class="cpp">entry.create_object = &amp;AbstractClassPrivate::createObject;
+</code></pre></li><li>创建对象回调函数将创建的对象指针返回给<code>Zend Engine</code></li><li><code>Zend Engine</code>将对象封装成<code>zval</code>，然后赋值给相关的<code>PHP</code>变量</li></ol><p>在这里步骤1, 3, 4都是通用的过程，没有什么好展开的，大家有兴趣可以去查阅<code>PHP</code>的相关源码，在这里我给大家详细说说<code>zendAPI</code>项目中的对象创建回调方法<code>AbstractClassPrivate::createObject</code>。</p><pre><code class="cpp">﻿zend_object *AbstractClassPrivate::createObject(zend_class_entry *entry)
+{
+   if (!(entry-&gt;ce_flags &amp; (ZEND_ACC_TRAIT|ZEND_ACC_EXPLICIT_ABSTRACT_CLASS|
+                            ZEND_ACC_INTERFACE|ZEND_ACC_IMPLEMENT_INTERFACES|
+                            ZEND_ACC_IMPLEMENT_TRAITS))) {
+      verify_abstract_class(entry);
+   }
+   AbstractClassPrivate *abstractClsPrivatePtr = retrieve_acp_ptr_from_cls_entry(entry);
+   std::shared_ptr&lt;StdClass&gt; nativeObject(abstractClsPrivatePtr-&gt;m_apiPtr-&gt;construct());
+   if (!nativeObject) {
+      zend_error(E_ERROR, &quot;Unable to instantiate %s&quot;, entry-&gt;name-&gt;val);
+   }
+   ObjectBinder *binder = new ObjectBinder(entry, 
+                                           nativeObject, 
+                                           abstractClsPrivatePtr-&gt;getObjectHandlers(), 
+                                           1);
+   return binder-&gt;getZendObject();
+}
+</code></pre><p>在这段代码中，我们首先根据参数<code>zend_class_entry *entry</code>中的相关标志位去做抽象类合法性检查，如果是抽象类则不让其进行实例化，<code>zendAPI</code>会抛出一个<code>Fata Error</code>。如果满足条件接下来代码会根据请求的原生类的类型去实例化一个<code>C++</code>的原生类对象。<br><em>注意：这个对象不是 PHP 代码中的对象，他是 C++ 中的对象，是为 PHP 中的对象提供底层实现支持</em><br>接下来我们创建一个绑定对象<code>ObjectBinder</code>, 绑定对象的作用是将<code>Zend Engine</code>里面的<code>zend_object</code>对象与<code>zendAPI</code>中的原生类对象做一个连接，将两者进行绑定，让两者具有相同的生命周期。<br>最后将绑定对象中的<code>zend_object</code>指针返回给<code>Zend Engine</code>。大家如果对<code>ObjectBinder</code>有兴趣，可以自行阅读<code>src/vm/ObjectBinder.cpp</code>文件。<br><code>Zend Engine</code>在获取<code>zend_object</code>对象之后，如果对应的原生类注册了<code>__construct</code>方法，那么<code>Zend Engine</code>会自动调用, 这里的原生类的<code>__construct</code>方法用于实现在<code>PHP</code>脚本里面的构造函数的功能。</p><h4><a href="##ji-yu-invokebridge-de-lei-fang-fa-de-pai-fa" class="header-anchor">#</a><span id="ji-yu-invokebridge-de-lei-fang-fa-de-pai-fa">基于<code>InvokeBridge</code>的类方法的派发</span></h4><p>在类的方法派发中有如下三种类型：</p><ol><li>正常的实例方法(<code>instance method</code>)的派发</li><li>类的静态方法的派发</li><li>类的<code>invoke</code>的派发</li></ol><h4><a href="##zheng-chang-de-shi-li-fang-fa-de-pai-fa" class="header-anchor">#</a><span id="zheng-chang-de-shi-li-fang-fa-de-pai-fa">正常的实例方法的派发</span></h4><p>当<code>Zend Engine</code>遇到正常的实例方法调用的<code>OP Code</code>，然后就会调用<code>m_handlers.get_method = &amp;AbstractClassPrivate::getMethod;</code>，这个方法返回<code>zend_function</code>对象，<code>Zend Engine</code>根据<code>zend_function</code>进行相关原生方法的调用。<br>下面我们看看<code>AbstractClassPrivate::getMethod</code>函数，这个方法是<code>zendAPI</code>与<code>Zend Engine</code>的结合之处。</p><pre><code class="cpp">﻿zend_function *AbstractClassPrivate::getMethod(zend_object **object, 
+                                               zend_string *methodName, 
+                                               const zval *key)
+{
+   zend_function *defaultFuncInfo = std_object_handlers.get_method(object, methodName, key);
+   if (defaultFuncInfo) {
+      return defaultFuncInfo;
+   }
+   zend_class_entry *defClassEntry = (*object)-&gt;ce;
+   assert(defClassEntry);
+   std::string contextKey(defClassEntry-&gt;name-&gt;val, defClassEntry-&gt;name-&gt;len);
+   contextKey.append(&quot;::&quot;);
+   contextKey.append(methodName-&gt;val, methodName-&gt;len);
+   CallContext *callContext  = nullptr;
+   auto targetContext = sm_contextPtrs.find(contextKey);
+   if (targetContext != sm_contextPtrs.end()) {
+      callContext = targetContext-&gt;second.get();  
+   } else {
+      std::shared_ptr&lt;CallContext&gt; targetContext(
+         reinterpret_cast&lt;CallContext *&gt;(emalloc(sizeof(CallContext))), 
+                                         std_php_memory_deleter);
+      callContext = targetContext.get();
+      std::memset(callContext, 0, sizeof(CallContext));
+      zend_internal_function *func = &amp;callContext-&gt;m_func;
+      func-&gt;type = ZEND_INTERNAL_FUNCTION;
+      func-&gt;module = nullptr;
+      func-&gt;handler = AbstractClassPrivate::magicCallForwarder;
+      func-&gt;arg_info = nullptr;
+      func-&gt;num_args = 0;
+      func-&gt;required_num_args = 0;
+      func-&gt;scope = defClassEntry;
+      func-&gt;fn_flags = ZEND_ACC_CALL_VIA_HANDLER;
+      func-&gt;function_name = methodName;
+      callContext-&gt;m_selfPtr = retrieve_acp_ptr_from_cls_entry(defClassEntry);
+      sm_contextPtrs[contextKey] = std::move(targetContext);
+   }
+   return reinterpret_cast&lt;zend_function *&gt;(callContext);
+}
+</code></pre><p>这个函数主要作用就是生成一个<code>zend_function</code>对象，然后设置相关的字段，首先我们先查看请求的方法是否在<code>std_object_handlers</code>里面，如果在的话就直接返回, <code>std_object_handlers</code>是<code>Zend Engine</code>为类定义的很多标准的方法处理器。<br><em>注意：一般情况下 std_object_handlers.get_method(object, methodName, key) 返回的值不是空指针，如果返回为空指针的情况，有两种情况，一种是方法不存在，另一种是本身就是调用魔术方法。</em><br>如果我们没有从<code>std_object_handlers</code>没有获取<code>zend_function</code>对象，这个时候我们开始准备一次标准的魔术方法调用需要的上下文环境，接下来的代码首先在静态字段<code>sm_contextPtrs</code>中先判断是否有准备调用的方法的上下文信息，如果没有的话生成一个，然后在上下文中获取<code>m_func</code>对象，对其进行相关字段的设置。最后将调用上下文对象强制转换成<code>zend_function</code>返回给<code>Zend Engine</code>。<br>在上面的代码中有一句核心的代码:</p><pre><code class="cpp">func-&gt;handler = AbstractClassPrivate::magicCallForwarder;
+</code></pre><p>这行代码主要将<code>zendAPI</code>的内置的魔术方法派发器设置到魔术方法调用上下文中的<code>zend_function</code>对象中。<br>下面我们分析一下<code>AbstractClassPrivate::magicCallForwarder</code>方法，这个是魔术方法派发器处理函数：</p><pre><code class="cpp">﻿void AbstractClassPrivate::magicCallForwarder(INTERNAL_FUNCTION_PARAMETERS)
+{
+   CallContext *callContext = reinterpret_cast&lt;CallContext *&gt;(execute_data-&gt;func);
+   assert(callContext);
+   bool isStatic = false;
+   AbstractClass *meta = callContext-&gt;m_selfPtr-&gt;m_apiPtr;
+   zend_class_entry *defClassEntry = callContext-&gt;m_selfPtr-&gt;m_classEntry;
+   zend_internal_function *func = &amp;callContext-&gt;m_func;
+   zend_string *funcName = func-&gt;function_name;
+   std::string contextKey(defClassEntry-&gt;name-&gt;val, defClassEntry-&gt;name-&gt;len);
+   contextKey.append(&quot;::&quot;);
+   contextKey.append(funcName-&gt;val, funcName-&gt;len);
+   if (!func-&gt;scope) {
+      contextKey.append(&quot;static&quot;);
+   }
+   ScopedFree scopeFree(sm_contextPtrs, contextKey);
+   const char *name = ZSTR_VAL(funcName);
+   try {
+      Parameters params(getThis(), ZEND_NUM_ARGS());
+      StdClass *nativeObject = params.getObject();
+      if (nativeObject) {
+         zval temp = meta-&gt;callMagicCall(nativeObject, name, params).detach(false);
+         ZVAL_COPY(return_value, &amp;temp);
+      } else {
+         isStatic = true;
+         zval temp = meta-&gt;callMagicStaticCall(name, params).detach(false);
+         ZVAL_COPY(return_value, &amp;temp);
+      }
+   } catch (const NotImplemented &amp;exception) {
+      if (isStatic) {
+         zend_error(E_ERROR, &quot;Undefined static method %s::%s&quot;, 
+                    meta-&gt;getClassName().c_str(), name);
+      } else {
+         zend_error(E_ERROR, &quot;Undefined instance method %s of %s&quot;, 
+                    name, meta-&gt;getClassName().c_str());
+      }
+   } catch (Exception &amp;exception) {
+      process_exception(exception);
+   }
+}
+</code></pre><p>这个函数看着很复杂，其实意思很简单。这个函数首先获取魔术函数的调用上下文。然后通过调用上下文获取相关的原生类的元信息描述类，然后调用元信息描述类同名的模式方法，如果出现异常<code>zendAPI</code>抛出<code>Fata Error</code>。<br>在进行处理的时候会通过相关调用上下文中的信息判断是调用静态魔术方法或者实例魔术方法调用。在调用完之后，我们会通过:</p><pre><code class="cpp">﻿ScopedFree scopeFree(sm_contextPtrs, contextKey);
+</code></pre><p>这行代码完成对调用上下文信息的释放，具体的详细步骤大家可以阅读这个函数的源码进行学习。</p><h4><a href="##lei-de-jing-tai-fang-fa-de-pai-fa" class="header-anchor">#</a><span id="lei-de-jing-tai-fang-fa-de-pai-fa">类的静态方法的派发</span></h4><p>类的静态方法调用跟类的实例方法方法的调用其实是一样的，当<code>Zend Engine</code>遇到静态方法调用的<code>OP Code</code>，然后就会调用<code>m_handlers.﻿get_static_method = &amp;AbstractClassPrivate::﻿getStaticMethod;</code>，这个方法返回<code>zend_function</code>对象，<code>Zend Engine</code>根据<code>zend_function</code>进行相关原生方法的调用。<br>下面我们看看<code>AbstractClassPrivate::﻿getStaticMethod</code>函数，这个方法是<code>zendAPI</code>与<code>Zend Engine</code>的结合之处。</p><pre><code class="cpp">﻿zend_function *AbstractClassPrivate::getStaticMethod(zend_class_entry *entry, 
+                                                     zend_string *methodName)
+{
+   zend_function *defaultFuncInfo = zend_std_get_static_method(entry, methodName, nullptr);
+   if (defaultFuncInfo) {
+      return defaultFuncInfo;
+   }
+   // if exception throw before delete the memory will be relase after request cycle
+   std::string contextKey(entry-&gt;name-&gt;val,  entry-&gt;name-&gt;len);
+   contextKey.append(&quot;::&quot;);
+   contextKey.append(methodName-&gt;val, methodName-&gt;len);
+   contextKey.append(&quot;static&quot;);
+   CallContext *callContext  = nullptr;
+   auto targetContext = sm_contextPtrs.find(contextKey);
+   if (targetContext != sm_contextPtrs.end()) {
+      callContext = targetContext-&gt;second.get();  
+   } else {
+      std::shared_ptr&lt;CallContext&gt; targetContext(
+        reinterpret_cast&lt;CallContext *&gt;(emalloc(sizeof(CallContext))), std_php_memory_deleter);
+      callContext = targetContext.get();
+      std::memset(callContext, 0, sizeof(CallContext));
+      zend_internal_function *func = &amp;callContext-&gt;m_func;
+      func-&gt;type = ZEND_INTERNAL_FUNCTION;
+      func-&gt;module = nullptr;
+      func-&gt;handler = &amp;AbstractClassPrivate::magicCallForwarder;
+      func-&gt;arg_info = nullptr;
+      func-&gt;num_args = 0;
+      func-&gt;required_num_args = 0;
+      func-&gt;scope = nullptr;
+      func-&gt;fn_flags = ZEND_ACC_CALL_VIA_HANDLER | ZEND_ACC_STATIC;
+      func-&gt;function_name = methodName;
+      callContext-&gt;m_selfPtr = retrieve_acp_ptr_from_cls_entry(entry);
+      sm_contextPtrs[contextKey] = std::move(targetContext);
+   }
+   return reinterpret_cast&lt;zend_function *&gt;(callContext);
+}
+</code></pre><p>这个方法跟我们上面分析的<code>AbstractClassPrivate::getMethod</code>其实是大同小异，两处的区别是：<br>作用域，静态方法没有作用域</p><pre><code class="cpp">func-&gt;scope = nullptr;
+</code></pre><p>方法的<code>flag</code>设置多了静态标志</p><pre><code class="cpp">func-&gt;fn_flags = ZEND_ACC_CALL_VIA_HANDLER | ZEND_ACC_STATIC;
+</code></pre><p>其余的处理跟实例方法一样。</p><h4><a href="##lei-de-invoke-de-pai-fa" class="header-anchor">#</a><span id="lei-de-invoke-de-pai-fa">类的<code>invoke</code>的派发</span></h4><p>在开始介绍这一节之前，我先来大致介绍下在<code>PHP</code>中什么是类的<code>invoke</code>的派发。简单来说就是定义类的时候定义一个<code>__invoke</code>的方法，然后我们把类实例化得到的对象进行类似函数调用的操作，这点跟<code>C++</code>里面的函数对象的意义是很类似的。<br>当<code>Zend Engine</code>执行到实例对象的函数方式调用的<code>OP Code</code>的时候，然后执行下面这行代码设置的字段:</p><pre><code class="cpp">﻿m_handlers.get_closure = &amp;AbstractClassPrivate::getClosure;
+</code></pre><p>这个字段的具体意思我们在本篇的<strong><a href="commonmethoddispatch.html#yuan-sheng-lei-yuan-xin-xi-de-zhu-ce-rang-zend-engine-zhi-dao-wo-men-zi-ding-yi-de-yuan-sheng-lei-de-cun-zai">原生类元信息的注册，让Zend Engine知道我们自定义的原生类的存在</a></strong>有介绍，大家可以查看。<br>下面我们具体看看<code>AbstractClassPrivate::getClosure</code>函数：</p><pre><code class="cpp">﻿int AbstractClassPrivate::getClosure(zval *object, 
+                                     zend_class_entry **entry, z
+                                     end_function **retFunc, 
+                                     zend_object **objectPtr)
+{
+   // @mark is this really right ?
+   zend_class_entry *defClassEntry = Z_OBJCE_P(object);
+   assert(defClassEntry);
+   std::string contextKey(defClassEntry-&gt;name-&gt;val, defClassEntry-&gt;name-&gt;len);
+   contextKey.append(&quot;::__invoke&quot;);
+   CallContext *callContext  = nullptr;
+   auto targetContext = sm_contextPtrs.find(contextKey);
+   if (targetContext != sm_contextPtrs.end()) {
+      callContext = targetContext-&gt;second.get();  
+   } else {
+      std::shared_ptr&lt;CallContext&gt; targetContext
+      (reinterpret_cast&lt;CallContext *&gt;(emalloc(sizeof(CallContext))), std_php_memory_deleter);
+      callContext = targetContext.get();
+      std::memset(callContext, 0, sizeof(CallContext));
+      zend_internal_function *func = &amp;callContext-&gt;m_func;
+      func-&gt;type = ZEND_INTERNAL_FUNCTION;
+      func-&gt;module = nullptr;
+      func-&gt;handler = &amp;AbstractClassPrivate::magicInvokeForwarder;
+      func-&gt;arg_info = nullptr;
+      func-&gt;num_args = 0;
+      func-&gt;required_num_args = 0;
+      func-&gt;scope = *entry;
+      func-&gt;fn_flags = ZEND_ACC_CALL_VIA_HANDLER;
+      func-&gt;function_name = nullptr;
+      callContext-&gt;m_selfPtr = retrieve_acp_ptr_from_cls_entry(Z_OBJCE_P(object));
+      sm_contextPtrs[contextKey] = std::move(targetContext);
+   }
+   *retFunc = reinterpret_cast&lt;zend_function *&gt;(callContext);
+   *objectPtr = Z_OBJ_P(object);
+   return ZAPI_SUCCESS;
+}
+</code></pre><p>在这个方法里面其实跟<code>AbstractClassPrivate::getMethod</code>和<code>AbstractClassPrivate::getStaticMethod</code>很像，区别是前两个函数是通过正常的函数返回值进行<code>zend_function</code>对象指针的返回，而在这个方法中，我们是通过参数指针进行返回的，至于您如果问，为什么要这么做，我想说其实我也不知道，这个得问<code>PHP</code>内核开发者了。<br>上面的语句的作用基本就是创建一个<code>invoke</code>调用所需要的上下文信息，然后对上下文信息中的<code>m_func</code>字段进行相应的设置，然后通过<code>retFunc</code>参数指针将结果返回给<code>Zend Engine</code>。在代码中的这行：</p><pre><code class="cpp">func-&gt;handler = &amp;AbstractClassPrivate::magicInvokeForwarder;
+</code></pre><p>我们通过这行设置了<code>invoke</code>调用的派发器，下面我们看看这个派发器是怎么实现的：</p><pre><code class="cpp">﻿void AbstractClassPrivate::magicInvokeForwarder(INTERNAL_FUNCTION_PARAMETERS)
+{
+   CallContext *callContext = reinterpret_cast&lt;CallContext *&gt;(execute_data-&gt;func);
+   assert(callContext);
+   zend_internal_function *func = &amp;callContext-&gt;m_func;
+   AbstractClass *meta = callContext-&gt;m_selfPtr-&gt;m_apiPtr;
+   zend_class_entry *defClassEntry = callContext-&gt;m_selfPtr-&gt;m_classEntry;
+   assert(defClassEntry);
+   std::string contextKey(defClassEntry-&gt;name-&gt;val, defClassEntry-&gt;name-&gt;len);
+   contextKey.append(&quot;::__invoke&quot;);
+   ScopedFree scopeFree(sm_contextPtrs, contextKey);
+   try {
+      Parameters params(getThis(), ZEND_NUM_ARGS());
+      StdClass *nativeObject = params.getObject();
+      zval temp = meta-&gt;callMagicInvoke(nativeObject, params).detach(false);
+      ZVAL_COPY(return_value, &amp;temp);
+   } catch (const NotImplemented &amp;exception) {
+      zend_error(E_ERROR, &quot;Function name must be a string&quot;);
+   } catch (Exception &amp;exception) {
+      process_exception(exception);
+   }
+}
+</code></pre><p>哈哈，是不是似成相识啊，对的，这个派发器其实跟<code>magicCallForwarder</code>很相似，大致的过程都是先获取调用上下文信息对象的指针，进一步获取类的元信息定义类然后通过对应的元信息定义类调用对应的原生类的<code>__invoke</code>方法, 如果出现相应的异常我们会抛出<code>Fata Error</code>，因为<code>invoke</code>作用与对象实例上，所有不会有<code>static</code>类型的相关处理。<br>调用完成，上小文信息对象会被<code>scopeFree</code>对象的析构方法进行释放。</p><blockquote><p><a href="http://php.net/manual/en/language.oop5.magic.php#object.invoke" target="_blank" rel="external">类的 invoke 魔术方法 编程手册</a></p></blockquote></div><div id="SOHUCS"></div><script type="text/javascript">!function(){var t="prod_d0afdf75574bac597b6f6d02cf698bd1";(window.innerWidth||document.documentElement.clientWidth)<960?window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=cythpQTHy&conf='+t+'"><\/script>'):function(t,e){var n=document.getElementsByTagName("head")[0]||document.head||document.documentElement,a=document.createElement("script");a.setAttribute("type","text/javascript"),a.setAttribute("charset","UTF-8"),a.setAttribute("src","http://qn.apkfuns.com/changyan/changyan.js"),"function"==typeof e&&(window.attachEvent?a.onreadystatechange=function(){var t=a.readyState;"loaded"!==t&&"complete"!==t||(a.onreadystatechange=null,e())}:a.onload=e),n.appendChild(a)}(0,function(){window.changyan.api.config({appid:"cythpQTHy",conf:t})})}()</script></div></div></div></div><script>$(function(){$(document).ready(function(){$("pre code").each(function(c,n){hljs.highlightBlock(n)})})})</script><div id="footer-wrapper"><div class="footer uk-text-center"><div>Copyright © 2016-2017 ZZU_SOFTBOY</div><div><a href="http://www.miitbeian.gov.cn/" target="_Blank">京ICP备17044371号-1</a></div></div></div><div id="offcanvas-push" uk-offcanvas="mode: slide; overlay: true"><div class="uk-offcanvas-bar" id="sidebar"><button class="uk-offcanvas-close" type="button" uk-close></button><div class="menu-container"><ul class="uk-text-left uk-width-1-1"><li class="uk-width-1-1"><a href="/">网站首页</a></li><li class="uk-width-1-1"><a href="/manual">手册</a></li><li class="uk-width-1-1"><a href="/api">API文档</a></li><li class="uk-width-1-1"><a href="/blog">博客</a></li><li class="uk-width-1-1"><a href="/about">关于我们</a></li></ul><div class="uk-panel"><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">序言</li><li><a href="/manual/0.0.1/prologue/introduction.html">zendAPI 项目介绍</a></li><li><a href="/manual/0.0.1/prologue/releasenotes.html">版本发布说明</a></li><li><a href="/manual/0.0.1/prologue/repobranchdesc.html">版本库分支标准</a></li><li><a href="/manual/0.0.1/prologue/contributionguide.html">如何贡献代码</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">编译与部署</li><li><a href="/manual/0.0.1/compileanddeploy/dependdesc.html">依赖环境详细说明</a></li><li><a href="/manual/0.0.1/compileanddeploy/preparedevelhost.html">开发环境构建</a></li><li><a href="/manual/0.0.1/compileanddeploy/cmakevardesc.html">CMake 参数详解</a></li><li><a href="/manual/0.0.1/compileanddeploy/compilezendapi.html">编译 zendAPI</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">新手学堂</li><li><a href="/manual/0.0.1/getstarted/prenewproject.html">项目准备工作</a></li><li><a href="/manual/0.0.1/getstarted/buildscriptdesc.html">项目编译脚本详解</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapientry.html">定义模块入口</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiconst.html">定义常量</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapifunction.html">定义原生函数</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiclass.html">自定义原生Class</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapinamespace.html">引入命名空间</a></li><li><a href="/manual/0.0.1/getstarted/registerinivars.html">注册 INI 变量</a></li><li><a href="/manual/0.0.1/getstarted/installhellozapiproject.html">安装 hello zapi 项目</a></li><li><a href="/manual/0.0.1/getstarted/installbydocker.html">使用 Docker 进行体验</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">zendAPI 设计解析</li><li><a href="/manual/0.0.1/zendapidesignentry/vocabularydesc.html">术语解释</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiwholedesign.html">整体架构设计解剖</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapinamespacedesc.html">命名空间说明</a></li><li><a href="/manual/0.0.1/zendapidesignentry/phpmoduleinitcycle.html">PHP 标准模块生命周期</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiinitcycle.html">初始化流程详解</a></li><li><a href="/manual/0.0.1/zendapidesignentry/datasturcturedesign.html">常见数据类型设计</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonfunctiondispatch.html">普通函数派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonmethoddispatch.html">类方法派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/internalinterfaceimplemention.html">内部接口的实现</a></li><li><a href="/manual/0.0.1/zendapidesignentry/stddatastream.html">标准数据输出流</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">扩展模块详解</li><li><a href="/manual/0.0.1/moduleinitentry/defineextmodule.html">定义扩展模块</a></li><li><a href="/manual/0.0.1/moduleinitentry/moduleinitcallback.html">模块初始化回调函数</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">命名空间</li><li><a href="/manual/0.0.1/namespacedefentry/definenamespace.html">定义命名空间</a></li><li><a href="/manual/0.0.1/namespacedefentry/namespaceapply.html">命名空间的运用</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">常量定义</li><li><a href="/manual/0.0.1/rawconstdefentry/rawconstdef.html">常量定义</a></li><li><a href="/manual/0.0.1/rawconstdefentry/constandnamespace.html">常量与命名空间</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">PHP 常见数据类型</li><li><a href="/manual/0.0.1/commondatastureentry/generalvarwrapper.html">通用变量容器</a></li><li><a href="/manual/0.0.1/commondatastureentry/boolvariantwrapper.html">布尔数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/numericvariantwrapper.html">整型数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/stringvariantwrapper.html">字符串数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/arrayvariantwrapper.html">数组数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/floatvariantwrapper.html">浮点数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/functionvariantwrapper.html">函数数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/objectvariantwrapper.html">对象数据类型</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">原生函数定义</li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionoverview.html">函数概述</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/argumentoffunction.html">函数参数定义</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionreturn.html">函数返回值</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionandnamespace.html">函数与命名空间</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">面向对象特性支持</li><li><a href="/manual/0.0.1/oopfeaturesupportentry/simpleclassdefine.html">类入门定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classpropertydefine.html">类属性定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmethoddefine.html">类方法定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmagicsupport.html">魔术方法支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/abstractclassandmethod.html">抽象类和抽象方法的定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/finalclassdef.html">final 类定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classextenddef.html">类继承定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classarrayacesssupport.html">类自定义 ArrayAccess 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classiteratorsupport.html">类迭代器支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classcountablesupport.html">countable 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classsserializablesupport.html">类序列化/反序列化支持</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">扩展配置支持</li><li><a href="/manual/0.0.1/extconfigsupportentry/definiconfig.html">定义 INI 配置</a></li></ul></div></div></div></div></div><script type="text/javascript" async src="http://s13.cnzz.com/z_stat.php?id=1264578420"></script><script type="text/javascript" async src="http://c.cnzz.com/core.php?web_id=1264578420&t=z"></script></body></html>

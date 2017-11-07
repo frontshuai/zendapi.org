@@ -1,0 +1,154 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>编译 zendAPI-zendAPI 手册</title><link rel="icon" href="/zendapi.ico" type="image/ico"><link rel="stylesheet" href="/statics/js/uikit/css/uikit.min.css"><link rel="stylesheet" href="/statics/css/base.css"><link rel="stylesheet" href="/statics/css/manual.css"><script type="text/javascript" src="//statics/js/jquery/jquery-3.2.1.min.js"></script><script type="text/javascript" src="//statics/js/uikit/js/uikit.min.js"></script><script type="text/javascript" src="//statics/js/uikit/js/uikit-icons.min.js"></script><script type="text/javascript" src="//statics/js/highlight/highlight.pack.js"></script><link rel="stylesheet" href="/statics/js/highlight/styles/railscasts.css"></head><body><script type="application/javascript"></script><div class="uk-offcanvas-content"><div id="header-wrapper" class="uk-container uk-margin-remove uk-container-expand site-header" uk-sticky="show-on-up: true; animation: uk-animation-slide-top;"><nav class="uk-navbar-container uk-margin-remove" uk-navbar><div class="uk-navbar-left"><div class="logo"><a href="/"><img src="//statics/images/zendapi.svg"></a></div></div><div class="uk-navbar-right"><ul class="uk-navbar-nav uk-visible@m"><li><a href="/">网站首页</a></li><li><a href="/manual">手册</a></li><li><a href="/api">API文档</a></li><li><a href="/blog">博客</a></li><li><a href="/about">关于我们</a></li></ul><ul class="uk-navbar-nav uk-hidden@m"><li><button class="nav-menu" data-uk-icon="icon: menu" uk-toggle="target: #offcanvas-push"></button></li></ul></div></nav></div><div id="container" style="width:100%"><div class="uk-container uk-margin-small-top uk-margin-small-bottom manual-page-container"><div class="manual-container uk-flex uk-flex-left"><div class="catalog uk-visible@m"><ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false"><li class="uk-parent"><a>序言</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/prologue/introduction.html">zendAPI 项目介绍</a></li><li><a href="/manual/0.0.1/prologue/releasenotes.html">版本发布说明</a></li><li><a href="/manual/0.0.1/prologue/repobranchdesc.html">版本库分支标准</a></li><li><a href="/manual/0.0.1/prologue/contributionguide.html">如何贡献代码</a></li></ul></li><li class="uk-parent uk-open"><a>编译与部署</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/compileanddeploy/dependdesc.html">依赖环境详细说明</a></li><li><a href="/manual/0.0.1/compileanddeploy/preparedevelhost.html">开发环境构建</a></li><li><a href="/manual/0.0.1/compileanddeploy/cmakevardesc.html">CMake 参数详解</a></li><li class="uk-active"><a href="/manual/0.0.1/compileanddeploy/compilezendapi.html">编译 zendAPI</a></li></ul></li><li class="uk-parent"><a>新手学堂</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/getstarted/prenewproject.html">项目准备工作</a></li><li><a href="/manual/0.0.1/getstarted/buildscriptdesc.html">项目编译脚本详解</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapientry.html">定义模块入口</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiconst.html">定义常量</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapifunction.html">定义原生函数</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiclass.html">自定义原生Class</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapinamespace.html">引入命名空间</a></li><li><a href="/manual/0.0.1/getstarted/registerinivars.html">注册 INI 变量</a></li><li><a href="/manual/0.0.1/getstarted/installhellozapiproject.html">安装 hello zapi 项目</a></li><li><a href="/manual/0.0.1/getstarted/installbydocker.html">使用 Docker 进行体验</a></li></ul></li><li class="uk-parent"><a>zendAPI 设计解析</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/zendapidesignentry/vocabularydesc.html">术语解释</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiwholedesign.html">整体架构设计解剖</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapinamespacedesc.html">命名空间说明</a></li><li><a href="/manual/0.0.1/zendapidesignentry/phpmoduleinitcycle.html">PHP 标准模块生命周期</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiinitcycle.html">初始化流程详解</a></li><li><a href="/manual/0.0.1/zendapidesignentry/datasturcturedesign.html">常见数据类型设计</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonfunctiondispatch.html">普通函数派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonmethoddispatch.html">类方法派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/internalinterfaceimplemention.html">内部接口的实现</a></li><li><a href="/manual/0.0.1/zendapidesignentry/stddatastream.html">标准数据输出流</a></li></ul></li><li class="uk-parent"><a>扩展模块详解</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/moduleinitentry/defineextmodule.html">定义扩展模块</a></li><li><a href="/manual/0.0.1/moduleinitentry/moduleinitcallback.html">模块初始化回调函数</a></li></ul></li><li class="uk-parent"><a>命名空间</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/namespacedefentry/definenamespace.html">定义命名空间</a></li><li><a href="/manual/0.0.1/namespacedefentry/namespaceapply.html">命名空间的运用</a></li></ul></li><li class="uk-parent"><a>常量定义</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/rawconstdefentry/rawconstdef.html">常量定义</a></li><li><a href="/manual/0.0.1/rawconstdefentry/constandnamespace.html">常量与命名空间</a></li></ul></li><li class="uk-parent"><a>PHP 常见数据类型</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/commondatastureentry/generalvarwrapper.html">通用变量容器</a></li><li><a href="/manual/0.0.1/commondatastureentry/boolvariantwrapper.html">布尔数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/numericvariantwrapper.html">整型数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/stringvariantwrapper.html">字符串数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/arrayvariantwrapper.html">数组数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/floatvariantwrapper.html">浮点数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/functionvariantwrapper.html">函数数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/objectvariantwrapper.html">对象数据类型</a></li></ul></li><li class="uk-parent"><a>原生函数定义</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/internalfuncdefineentry/functionoverview.html">函数概述</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/argumentoffunction.html">函数参数定义</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionreturn.html">函数返回值</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionandnamespace.html">函数与命名空间</a></li></ul></li><li class="uk-parent"><a>面向对象特性支持</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/oopfeaturesupportentry/simpleclassdefine.html">类入门定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classpropertydefine.html">类属性定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmethoddefine.html">类方法定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmagicsupport.html">魔术方法支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/abstractclassandmethod.html">抽象类和抽象方法的定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/finalclassdef.html">final 类定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classextenddef.html">类继承定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classarrayacesssupport.html">类自定义 ArrayAccess 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classiteratorsupport.html">类迭代器支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classcountablesupport.html">countable 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classsserializablesupport.html">类序列化/反序列化支持</a></li></ul></li><li class="uk-parent"><a>扩展配置支持</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/extconfigsupportentry/definiconfig.html">定义 INI 配置</a></li></ul></li></ul></div><div class="uk-width-expand manual-doc-container"><h1 class="uk-article-title manual-title">编译 zendAPI</h1><div class="uk-article manual-content uk-margin-medium-bottom uk-text-break"><p>操作系统我们假定是类<code>unix</code>操作系统，采用非源码文件夹编译。</p><h4><a href="##chuang-jian-gong-zuo-mu-lu" class="header-anchor">#</a><span id="chuang-jian-gong-zuo-mu-lu">创建工作目录</span></h4><pre><code>cd ~/
+mkdir workspace
+cd workspace
+mkdir build-zendapi
+</code></pre><h4><a href="##huo-qu-yuan-ma" class="header-anchor">#</a><span id="huo-qu-yuan-ma">获取源码</span></h4><p>您可以直接<code>clone</code>指定的分支，比如<code>master</code>分支。到目前为止<code>zendAPI</code>发布了一个版本<code>zapi-0.0.2-snapshot</code>。</p><pre><code>git clone https://github.com/qcoreteam/zendapi.git zendapidevel
+cd zendapidevel
+git checkout master
+git submodule init
+git submodule update
+cd ..
+</code></pre><h4><a href="##mo-ren-can-shu-bian-yi" class="header-anchor">#</a><span id="mo-ren-can-shu-bian-yi">默认参数编译</span></h4><p>如果您的<code>PHP</code>安装在标准路径，可以用下面的命令进行编译</p><pre><code>cd build-zendapi
+cmake ../zendapidevel
+</code></pre><p>如果您想安装到特定的路径，可以使用下面的命名进行编译</p><pre><code>cd build-zendapi
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local ../zendapidevel
+</code></pre><p>如果您的<code>PHP</code>没有安装在标准路径，假定您安装在<code>/usr/local/php-7.1.5</code>目录下，那么您可以使用下面的命令进行编译</p><pre><code>cd build-zendapi
+cmake -D﻿ZAPI_OPT_PHPCFG_PATH=/usr/local/php-7.1.5/bin/php-config ../zendapidevel
+</code></pre><p>如果您想给编译器指定额外的选项参数，比如您想用<code>c++14</code>标准进行编译，您可以使用下面的命令进行编译</p><pre><code>cd build-zendapi
+cmake -DCMAKE_CXX_FLAGS=&quot;-std=c++14&quot; ../zendapidevel
+</code></pre><p>如果您想使用特定版本的编译器进行编译，比如我自己，我自己编译了<code>clang 3.5</code>， 按照路径为<code>/usr/local/llvm-3.5/bin/clang++</code>，这个路径没有在<code>PATH</code>环境变量里面，那么我们可以使用下面的命令进行编译</p><pre><code>cd build-zendapi
+cmake -DCMAKE_C_COMPILER=/usr/local/llvm-3.5/bin/clang \
+      -DCMAKE_CXX_COMPILER=/usr/local/llvm-3.5/bin/clang++ ../zendapidevel
+</code></pre><p>现在我假定在我本机使用如下命令进行编译,<code>PHP</code>安装在<code>/usr/local/php7/</code>, 操作系统为<code>MacOS</code></p><pre><code>cmake -DCMAKE_C_COMPILER=/usr/local/bin/gcc-6 \
+      -DCMAKE_CXX_COMPILER=/usr/local/bin/g++-6 -DCMAKE_BUILD_TYPE=Debug ../zendapidevel
+</code></pre><p>如果一切正常的话，您将看到如下的结果</p><pre><code>-- --------------------------------------------------------------------------------------
+-- Thank for using zendAPI project, have a lot of fun!
+-- --------------------------------------------------------------------------------------
+-- ZAPI_VERSION: 0.0.1-devel
+-- PHP_INCLUDE_PATH: /usr/local/php7/include
+-- PHP_LIB_PATH: /usr/local/php7/lib/libphp7.dylib
+-- PHP_EXECUTABLE: /usr/local/php7/bin/php
+-- PHP_CONFIG_EXECUABLE: /usr/local/php7/bin/php-config
+-- CMAKE_BUILD_TYPE: Debug
+-- CMAKE_BINARY_DIR: ~/workspace/build-zendapi
+-- CMAKE_CURRENT_BINARY_DIR: ~/workspace/build-zendapi
+-- CMAKE_SOURCE_DIR: ~/workspace/zendapidevel
+-- PROJECT_BINARY_DIR: ~/workspace/build-zendapi
+-- PROJECT_SOURCE_DIR: ~/workspace/zendapidevel
+-- CMAKE_MODULE_PATH: ~/workspace/zendapidevel/cmake/modules
+-- CMAKE_COMMAND: /usr/local/Cellar/cmake/3.7.2/bin/cmake
+-- CMAKE_INSTALL_PREFIX: /usr/local
+-- CMAKE_ROOT: /usr/local/Cellar/cmake/3.7.2/share/cmake
+-- CMAKE_SYSTEM: Darwin-16.7.0
+-- CMAKE_SYSTEM_NAME: Darwin
+-- CMAKE_SYSTEM_VERSION: 16.7.0
+-- CMAKE_SYSTEM_PROCESSOR: x86_64
+-- CMAKE_SKIP_RPATH: NO
+-- CMAKE_VERBOSE_MAKEFILE: FALSE
+-- CMAKE_CXX_COMPILER: /usr/local/bin/g++-6
+-- CMAKE_CXX_COMPILER_VERSION: 6.4.0
+-- CMAKE_CXX_FLAGS: -Wa,-q -Wno-macro-redefined -Wno-deprecated-declarations
+-- CMAKE_AR: /usr/bin/ar
+-- CMAKE_RANLIB: /usr/bin/ranlib
+-- --------------------------------------------------------------------------------------
+-- Configuring done
+-- Generating done
+-- Build files have been written to: ~/workspace/build-zendapi
+</code></pre><p>如果有错误，您可以根据具体的错误信息进行排查，如果不能解决，您可以到我们的 segmentfault 技术圈进行交流讨论<br>如果没有错误输入一下命名进行编译,<code>-j</code>指定编译进程数，根据<code>CPU</code>线程数定</p><pre><code>make -j 8
+</code></pre><p>如果整个编译过程没有错误的话，您将看到如下的输出，如果有错误，麻烦您通知我们</p><pre><code>[100%] Linking CXX shared library ../lib/libzapi.dylib
+[100%] Built target zapi
+</code></pre><p>最后输入以下命令进行安装</p><pre><code>sudo make install
+</code></pre><p>安装完成后您将看到如下输出</p><pre><code>Install the project...
+-- Install configuration: &quot;Debug&quot;
+-- Installing: /usr/local/lib/cmake/zendapi/ZendApiConfig.cmake
+-- Installing: /usr/local/lib/cmake/zendapi/ZendApiConfigVersion.cmake
+-- Installing: /usr/local/include/zapi
+-- Installing: /usr/local/include/zapi/CompilerDetection.h
+-- Installing: /usr/local/include/zapi/ds
+-- Installing: /usr/local/include/zapi/ds/ArrayItemProxy.h
+-- Installing: /usr/local/include/zapi/ds/ArrayVariant.h
+-- Installing: /usr/local/include/zapi/ds/BoolVariant.h
+-- Installing: /usr/local/include/zapi/ds/CallableVariant.h
+-- Installing: /usr/local/include/zapi/ds/DoubleVariant.h
+-- Installing: /usr/local/include/zapi/ds/internal
+-- Installing: /usr/local/include/zapi/ds/internal/ArrayItemProxyPrivate.h
+-- Installing: /usr/local/include/zapi/ds/internal/VariantPrivate.h
+-- Installing: /usr/local/include/zapi/ds/NumericVariant.h
+-- Installing: /usr/local/include/zapi/ds/ObjectVariant.h
+-- Installing: /usr/local/include/zapi/ds/StringVariant.h
+-- Installing: /usr/local/include/zapi/ds/Variant.h
+-- Installing: /usr/local/include/zapi/Global.h
+-- Installing: /usr/local/include/zapi/kernel
+-- Installing: /usr/local/include/zapi/kernel/Exception.h
+-- Installing: /usr/local/include/zapi/kernel/FatalError.h
+-- Installing: /usr/local/include/zapi/kernel/Meta.h
+-- Installing: /usr/local/include/zapi/kernel/NotImplemented.h
+-- Installing: /usr/local/include/zapi/kernel/OrigException.h
+-- Installing: /usr/local/include/zapi/kernel/StreamBuffer.h
+-- Installing: /usr/local/include/zapi/lang
+-- Installing: /usr/local/include/zapi/lang/Argument.h
+-- Installing: /usr/local/include/zapi/lang/Class.h
+-- Installing: /usr/local/include/zapi/lang/Constant.h
+-- Installing: /usr/local/include/zapi/lang/Extension.h
+-- Installing: /usr/local/include/zapi/lang/Function.h
+-- Installing: /usr/local/include/zapi/lang/Ini.h
+-- Installing: /usr/local/include/zapi/lang/Interface.h
+-- Installing: /usr/local/include/zapi/lang/internal
+-- Installing: /usr/local/include/zapi/lang/internal/ExtensionPrivate.h
+-- Installing: /usr/local/include/zapi/lang/internal/NamespacePrivate.h
+-- Installing: /usr/local/include/zapi/lang/internal/StdClassPrivate.h
+-- Installing: /usr/local/include/zapi/lang/Method.h
+-- Installing: /usr/local/include/zapi/lang/Namespace.h
+-- Installing: /usr/local/include/zapi/lang/Parameters.h
+-- Installing: /usr/local/include/zapi/lang/StdClass.h
+-- Installing: /usr/local/include/zapi/lang/Type.h
+-- Installing: /usr/local/include/zapi/PhpHeaders.h
+-- Installing: /usr/local/include/zapi/ProcessorDetection.h
+-- Installing: /usr/local/include/zapi/protocol
+-- Installing: /usr/local/include/zapi/protocol/AbstractIterator.h
+-- Installing: /usr/local/include/zapi/protocol/ArrayAccess.h
+-- Installing: /usr/local/include/zapi/protocol/Countable.h
+-- Installing: /usr/local/include/zapi/protocol/Interfaces.h
+-- Installing: /usr/local/include/zapi/protocol/Serializable.h
+-- Installing: /usr/local/include/zapi/protocol/Traversable.h
+-- Installing: /usr/local/include/zapi/stdext
+-- Installing: /usr/local/include/zapi/stdext/Functional.h
+-- Installing: /usr/local/include/zapi/stdext/internal
+-- Installing: /usr/local/include/zapi/stdext/internal/FunctionalPrivate.h
+-- Installing: /usr/local/include/zapi/stdext/internal/TuplePrivate.h
+-- Installing: /usr/local/include/zapi/stdext/Tuple.h
+-- Installing: /usr/local/include/zapi/stdext/TypeTraits.h
+-- Installing: /usr/local/include/zapi/SystemDetection.h
+-- Installing: /usr/local/include/zapi/Typedefs.h
+-- Installing: /usr/local/include/zapi/utils
+-- Installing: /usr/local/include/zapi/utils/CommonFuncs.h
+-- Installing: /usr/local/include/zapi/utils/PhpFuncs.h
+-- Installing: /usr/local/include/zapi/Version.h.in
+-- Installing: /usr/local/include/zapi/vm
+-- Installing: /usr/local/include/zapi/vm/AbstractClass.h
+-- Installing: /usr/local/include/zapi/vm/AbstractMember.h
+-- Installing: /usr/local/include/zapi/vm/BoolMember.h
+-- Installing: /usr/local/include/zapi/vm/Callable.h
+-- Installing: /usr/local/include/zapi/vm/Closure.h
+-- Installing: /usr/local/include/zapi/vm/Engine.h
+-- Installing: /usr/local/include/zapi/vm/ExecStateGuard.h
+-- Installing: /usr/local/include/zapi/vm/FloatMember.h
+-- Installing: /usr/local/include/zapi/vm/internal
+-- Installing: /usr/local/include/zapi/vm/internal/AbstractClassPrivate.h
+-- Installing: /usr/local/include/zapi/vm/internal/AbstractMemberPrivate.h
+-- Installing: /usr/local/include/zapi/vm/internal/CallablePrivate.h
+-- Installing: /usr/local/include/zapi/vm/InvokeBridge.h
+-- Installing: /usr/local/include/zapi/vm/IteratorBridge.h
+-- Installing: /usr/local/include/zapi/vm/NullMember.h
+-- Installing: /usr/local/include/zapi/vm/NumericMember.h
+-- Installing: /usr/local/include/zapi/vm/ObjectBinder.h
+-- Installing: /usr/local/include/zapi/vm/Property.h
+-- Installing: /usr/local/include/zapi/vm/StringMember.h
+-- Installing: /usr/local/include/zapi/vm/ZValMember.h
+-- Installing: /usr/local/include/zapi/ZendApi.h
+-- Installing: /usr/local/lib/libzapi.0.0.1.dylib
+-- Installing: /usr/local/lib/libzapi.0.dylib
+-- Installing: /usr/local/lib/libzapi.dylib
+-- Installing: /usr/local/lib/cmake/zendapi/ZendApiTargets.cmake
+-- Installing: /usr/local/lib/cmake/zendapi/ZendApiTargets-debug.cmake
+</code></pre><p>到此我们整个安装过程就结束了， Have a lot of fun。</p></div><div id="SOHUCS"></div><script type="text/javascript">!function(){var t="prod_d0afdf75574bac597b6f6d02cf698bd1";(window.innerWidth||document.documentElement.clientWidth)<960?window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=cythpQTHy&conf='+t+'"><\/script>'):function(t,e){var n=document.getElementsByTagName("head")[0]||document.head||document.documentElement,a=document.createElement("script");a.setAttribute("type","text/javascript"),a.setAttribute("charset","UTF-8"),a.setAttribute("src","http://qn.apkfuns.com/changyan/changyan.js"),"function"==typeof e&&(window.attachEvent?a.onreadystatechange=function(){var t=a.readyState;"loaded"!==t&&"complete"!==t||(a.onreadystatechange=null,e())}:a.onload=e),n.appendChild(a)}(0,function(){window.changyan.api.config({appid:"cythpQTHy",conf:t})})}()</script></div></div></div></div><script>$(function(){$(document).ready(function(){$("pre code").each(function(c,n){hljs.highlightBlock(n)})})})</script><div id="footer-wrapper"><div class="footer uk-text-center"><div>Copyright © 2016-2017 ZZU_SOFTBOY</div><div><a href="http://www.miitbeian.gov.cn/" target="_Blank">京ICP备17044371号-1</a></div></div></div><div id="offcanvas-push" uk-offcanvas="mode: slide; overlay: true"><div class="uk-offcanvas-bar" id="sidebar"><button class="uk-offcanvas-close" type="button" uk-close></button><div class="menu-container"><ul class="uk-text-left uk-width-1-1"><li class="uk-width-1-1"><a href="/">网站首页</a></li><li class="uk-width-1-1"><a href="/manual">手册</a></li><li class="uk-width-1-1"><a href="/api">API文档</a></li><li class="uk-width-1-1"><a href="/blog">博客</a></li><li class="uk-width-1-1"><a href="/about">关于我们</a></li></ul><div class="uk-panel"><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">序言</li><li><a href="/manual/0.0.1/prologue/introduction.html">zendAPI 项目介绍</a></li><li><a href="/manual/0.0.1/prologue/releasenotes.html">版本发布说明</a></li><li><a href="/manual/0.0.1/prologue/repobranchdesc.html">版本库分支标准</a></li><li><a href="/manual/0.0.1/prologue/contributionguide.html">如何贡献代码</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">编译与部署</li><li><a href="/manual/0.0.1/compileanddeploy/dependdesc.html">依赖环境详细说明</a></li><li><a href="/manual/0.0.1/compileanddeploy/preparedevelhost.html">开发环境构建</a></li><li><a href="/manual/0.0.1/compileanddeploy/cmakevardesc.html">CMake 参数详解</a></li><li><a href="/manual/0.0.1/compileanddeploy/compilezendapi.html">编译 zendAPI</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">新手学堂</li><li><a href="/manual/0.0.1/getstarted/prenewproject.html">项目准备工作</a></li><li><a href="/manual/0.0.1/getstarted/buildscriptdesc.html">项目编译脚本详解</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapientry.html">定义模块入口</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiconst.html">定义常量</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapifunction.html">定义原生函数</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiclass.html">自定义原生Class</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapinamespace.html">引入命名空间</a></li><li><a href="/manual/0.0.1/getstarted/registerinivars.html">注册 INI 变量</a></li><li><a href="/manual/0.0.1/getstarted/installhellozapiproject.html">安装 hello zapi 项目</a></li><li><a href="/manual/0.0.1/getstarted/installbydocker.html">使用 Docker 进行体验</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">zendAPI 设计解析</li><li><a href="/manual/0.0.1/zendapidesignentry/vocabularydesc.html">术语解释</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiwholedesign.html">整体架构设计解剖</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapinamespacedesc.html">命名空间说明</a></li><li><a href="/manual/0.0.1/zendapidesignentry/phpmoduleinitcycle.html">PHP 标准模块生命周期</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiinitcycle.html">初始化流程详解</a></li><li><a href="/manual/0.0.1/zendapidesignentry/datasturcturedesign.html">常见数据类型设计</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonfunctiondispatch.html">普通函数派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonmethoddispatch.html">类方法派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/internalinterfaceimplemention.html">内部接口的实现</a></li><li><a href="/manual/0.0.1/zendapidesignentry/stddatastream.html">标准数据输出流</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">扩展模块详解</li><li><a href="/manual/0.0.1/moduleinitentry/defineextmodule.html">定义扩展模块</a></li><li><a href="/manual/0.0.1/moduleinitentry/moduleinitcallback.html">模块初始化回调函数</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">命名空间</li><li><a href="/manual/0.0.1/namespacedefentry/definenamespace.html">定义命名空间</a></li><li><a href="/manual/0.0.1/namespacedefentry/namespaceapply.html">命名空间的运用</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">常量定义</li><li><a href="/manual/0.0.1/rawconstdefentry/rawconstdef.html">常量定义</a></li><li><a href="/manual/0.0.1/rawconstdefentry/constandnamespace.html">常量与命名空间</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">PHP 常见数据类型</li><li><a href="/manual/0.0.1/commondatastureentry/generalvarwrapper.html">通用变量容器</a></li><li><a href="/manual/0.0.1/commondatastureentry/boolvariantwrapper.html">布尔数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/numericvariantwrapper.html">整型数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/stringvariantwrapper.html">字符串数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/arrayvariantwrapper.html">数组数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/floatvariantwrapper.html">浮点数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/functionvariantwrapper.html">函数数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/objectvariantwrapper.html">对象数据类型</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">原生函数定义</li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionoverview.html">函数概述</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/argumentoffunction.html">函数参数定义</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionreturn.html">函数返回值</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionandnamespace.html">函数与命名空间</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">面向对象特性支持</li><li><a href="/manual/0.0.1/oopfeaturesupportentry/simpleclassdefine.html">类入门定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classpropertydefine.html">类属性定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmethoddefine.html">类方法定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmagicsupport.html">魔术方法支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/abstractclassandmethod.html">抽象类和抽象方法的定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/finalclassdef.html">final 类定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classextenddef.html">类继承定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classarrayacesssupport.html">类自定义 ArrayAccess 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classiteratorsupport.html">类迭代器支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classcountablesupport.html">countable 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classsserializablesupport.html">类序列化/反序列化支持</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">扩展配置支持</li><li><a href="/manual/0.0.1/extconfigsupportentry/definiconfig.html">定义 INI 配置</a></li></ul></div></div></div></div></div><script type="text/javascript" async src="http://s13.cnzz.com/z_stat.php?id=1264578420"></script><script type="text/javascript" async src="http://c.cnzz.com/core.php?web_id=1264578420&t=z"></script></body></html>

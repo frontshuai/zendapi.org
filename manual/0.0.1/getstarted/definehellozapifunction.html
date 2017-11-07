@@ -1,0 +1,143 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>没有函数怎么行，看我怎么定义函数-zendAPI 手册</title><link rel="icon" href="/zendapi.ico" type="image/ico"><link rel="stylesheet" href="/statics/js/uikit/css/uikit.min.css"><link rel="stylesheet" href="/statics/css/base.css"><link rel="stylesheet" href="/statics/css/manual.css"><script type="text/javascript" src="//statics/js/jquery/jquery-3.2.1.min.js"></script><script type="text/javascript" src="//statics/js/uikit/js/uikit.min.js"></script><script type="text/javascript" src="//statics/js/uikit/js/uikit-icons.min.js"></script><script type="text/javascript" src="//statics/js/highlight/highlight.pack.js"></script><link rel="stylesheet" href="/statics/js/highlight/styles/railscasts.css"></head><body><script type="application/javascript"></script><div class="uk-offcanvas-content"><div id="header-wrapper" class="uk-container uk-margin-remove uk-container-expand site-header" uk-sticky="show-on-up: true; animation: uk-animation-slide-top;"><nav class="uk-navbar-container uk-margin-remove" uk-navbar><div class="uk-navbar-left"><div class="logo"><a href="/"><img src="//statics/images/zendapi.svg"></a></div></div><div class="uk-navbar-right"><ul class="uk-navbar-nav uk-visible@m"><li><a href="/">网站首页</a></li><li><a href="/manual">手册</a></li><li><a href="/api">API文档</a></li><li><a href="/blog">博客</a></li><li><a href="/about">关于我们</a></li></ul><ul class="uk-navbar-nav uk-hidden@m"><li><button class="nav-menu" data-uk-icon="icon: menu" uk-toggle="target: #offcanvas-push"></button></li></ul></div></nav></div><div id="container" style="width:100%"><div class="uk-container uk-margin-small-top uk-margin-small-bottom manual-page-container"><div class="manual-container uk-flex uk-flex-left"><div class="catalog uk-visible@m"><ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: false"><li class="uk-parent"><a>序言</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/prologue/introduction.html">zendAPI 项目介绍</a></li><li><a href="/manual/0.0.1/prologue/releasenotes.html">版本发布说明</a></li><li><a href="/manual/0.0.1/prologue/repobranchdesc.html">版本库分支标准</a></li><li><a href="/manual/0.0.1/prologue/contributionguide.html">如何贡献代码</a></li></ul></li><li class="uk-parent"><a>编译与部署</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/compileanddeploy/dependdesc.html">依赖环境详细说明</a></li><li><a href="/manual/0.0.1/compileanddeploy/preparedevelhost.html">开发环境构建</a></li><li><a href="/manual/0.0.1/compileanddeploy/cmakevardesc.html">CMake 参数详解</a></li><li><a href="/manual/0.0.1/compileanddeploy/compilezendapi.html">编译 zendAPI</a></li></ul></li><li class="uk-parent uk-open"><a>新手学堂</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/getstarted/prenewproject.html">项目准备工作</a></li><li><a href="/manual/0.0.1/getstarted/buildscriptdesc.html">项目编译脚本详解</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapientry.html">定义模块入口</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiconst.html">定义常量</a></li><li class="uk-active"><a href="/manual/0.0.1/getstarted/definehellozapifunction.html">定义原生函数</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiclass.html">自定义原生Class</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapinamespace.html">引入命名空间</a></li><li><a href="/manual/0.0.1/getstarted/registerinivars.html">注册 INI 变量</a></li><li><a href="/manual/0.0.1/getstarted/installhellozapiproject.html">安装 hello zapi 项目</a></li><li><a href="/manual/0.0.1/getstarted/installbydocker.html">使用 Docker 进行体验</a></li></ul></li><li class="uk-parent"><a>zendAPI 设计解析</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/zendapidesignentry/vocabularydesc.html">术语解释</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiwholedesign.html">整体架构设计解剖</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapinamespacedesc.html">命名空间说明</a></li><li><a href="/manual/0.0.1/zendapidesignentry/phpmoduleinitcycle.html">PHP 标准模块生命周期</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiinitcycle.html">初始化流程详解</a></li><li><a href="/manual/0.0.1/zendapidesignentry/datasturcturedesign.html">常见数据类型设计</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonfunctiondispatch.html">普通函数派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonmethoddispatch.html">类方法派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/internalinterfaceimplemention.html">内部接口的实现</a></li><li><a href="/manual/0.0.1/zendapidesignentry/stddatastream.html">标准数据输出流</a></li></ul></li><li class="uk-parent"><a>扩展模块详解</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/moduleinitentry/defineextmodule.html">定义扩展模块</a></li><li><a href="/manual/0.0.1/moduleinitentry/moduleinitcallback.html">模块初始化回调函数</a></li></ul></li><li class="uk-parent"><a>命名空间</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/namespacedefentry/definenamespace.html">定义命名空间</a></li><li><a href="/manual/0.0.1/namespacedefentry/namespaceapply.html">命名空间的运用</a></li></ul></li><li class="uk-parent"><a>常量定义</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/rawconstdefentry/rawconstdef.html">常量定义</a></li><li><a href="/manual/0.0.1/rawconstdefentry/constandnamespace.html">常量与命名空间</a></li></ul></li><li class="uk-parent"><a>PHP 常见数据类型</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/commondatastureentry/generalvarwrapper.html">通用变量容器</a></li><li><a href="/manual/0.0.1/commondatastureentry/boolvariantwrapper.html">布尔数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/numericvariantwrapper.html">整型数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/stringvariantwrapper.html">字符串数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/arrayvariantwrapper.html">数组数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/floatvariantwrapper.html">浮点数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/functionvariantwrapper.html">函数数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/objectvariantwrapper.html">对象数据类型</a></li></ul></li><li class="uk-parent"><a>原生函数定义</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/internalfuncdefineentry/functionoverview.html">函数概述</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/argumentoffunction.html">函数参数定义</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionreturn.html">函数返回值</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionandnamespace.html">函数与命名空间</a></li></ul></li><li class="uk-parent"><a>面向对象特性支持</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/oopfeaturesupportentry/simpleclassdefine.html">类入门定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classpropertydefine.html">类属性定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmethoddefine.html">类方法定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmagicsupport.html">魔术方法支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/abstractclassandmethod.html">抽象类和抽象方法的定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/finalclassdef.html">final 类定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classextenddef.html">类继承定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classarrayacesssupport.html">类自定义 ArrayAccess 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classiteratorsupport.html">类迭代器支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classcountablesupport.html">countable 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classsserializablesupport.html">类序列化/反序列化支持</a></li></ul></li><li class="uk-parent"><a>扩展配置支持</a><ul class="uk-nav-sub"><li><a href="/manual/0.0.1/extconfigsupportentry/definiconfig.html">定义 INI 配置</a></li></ul></li></ul></div><div class="uk-width-expand manual-doc-container"><h1 class="uk-article-title manual-title">没有函数怎么行，看我怎么定义函数</h1><div class="uk-article manual-content uk-margin-medium-bottom uk-text-break"><p>在上一篇中我们在<code>hellozapi</code>扩展中我们定义了几个常量，但是一个有用的扩展，必须得有函数，没有函数的扩展啥用没有，如果您觉得定义函数很难的话，您又错了，<code>zendAPI</code>就是为了让您生活变得美好而生的，而不会让事情变得复杂。<br>说到函数，咱们就不得不说函数最重要的两个组成部分，一个是函数的参数，另一个是函数的返回值。因为<code>C++</code>是静态语言，所以咱们的函数的类型必须在编译时就要确定，不像<code>PHP</code>语言中那么灵活。<br><code>zendAPI</code>主要支持如下几种函数原型：</p><ol><li>有返回值, 无参数</li><li>有返回值, 有参数</li><li>有返回值, 可变参数</li><li>无返回值, 无参数</li><li>无返回值, 有参数</li><li>无返回值, 可变参数</li></ol><blockquote><p>说明：<code>zendAPI</code>支持引用类型的参数传递</p></blockquote><p>考虑到我们是新手学堂，在本篇中我们就不介绍可变参数和引用传参了，这部分我们放在我们的高级教程部分讲。<br>我们会在<code>hellozapi</code>中定义以下<code>PHP</code>原型的函数：（PHP 语言描述）</p><ol><li>print_project_name($prefix);</li><li>print_develop_team();</li><li>get_version();</li><li>add_two_num($num1, $num2);</li></ol><p>下面我们声明这几个<code>PHP</code>函数对应的<code>C++</code>函数原型</p><h4><a href="##c-code" class="header-anchor">#</a><span id="c-code">C++ Code</span></h4><pre><code class="cpp">using zapi::ds::Variant;
+using zapi::ds::NumericVaraint;
+using zapi::ds::StringVariant;
+
+void print_project_name(const StringVariant &amp;prefix);
+void print_develop_team();
+Variant get_version();
+Variant add_two_num(const NumericVariant &amp;num1, const NumericVariant num2);
+</code></pre><h4><a href="##bei-jing-zhi-shi-xue-xi" class="header-anchor">#</a><span id="bei-jing-zhi-shi-xue-xi">背景知识学习</span></h4><p>在上面的<code>C++</code>函数的原型声明中出现两个陌生的类<code>Variant</code>和<code>NumericVariant</code>, 不要担心，现在我们简单介绍一下这两个类。</p><h5><a href="##zapi-ds-variant" class="header-anchor">#</a><span id="zapi-ds-variant">zapi::ds::Variant</span></h5><p>在<code>zendAPI</code>中，<code>zapi::ds::Variant</code>类的一个对象就代表<code>PHP</code>的一个变量，您可以将<code>zapi::ds::Variant</code>想象成一个容器，它将常见的<code>C++</code>类型包装成一个<code>zapi::ds::Variant</code>对象，方便跟<code>zend engine</code>整合。<br>您可以用这个类去包装如下类型:</p><ol><li>常见的整形 (int, std::int8_t, std::int16_t, std::int32_t, long … )</li><li>浮点型 (float, double)</li><li>布尔型 (true, false)</li><li>字符串 (std::string, char *, char [])</li><li>空指针 (std::nullptr_t)</li></ol><p>上面说的既然<code>zapi::ds::Variant</code>可以包装一切必要的类型，是不是就够了呢？答案是否定的，虽然<code>zapi::ds::Variant</code>可以容纳<code>C++</code>的这些数据类型，但是它不提供任何特定类型的计算，比如常见的四则运算，字符串连接，函数调用等等。<br>那么问题又来了，你可能会问，为什么不提供这样的接口呢？接下来我就来解释下为什么不在<code>zapi::ds::Variant</code>为什么不提供这些接口，原因有如下几点：<br>1.<code>zapi::ds::Variant</code>设计的目的就是充当一个容器，方便<code>zendAPI</code>向<code>zend engine</code>进行数据传递，它强调的数据传递而不是数据的计算。<br>2.<code>zendAPI</code>的设计理念是，单一的类完成单一的任务，把字符串操作和整形操作甚至函数调用等等杂在一起违背了这个理念。</p><h5><a href="##shi-yong-fan-li" class="header-anchor">#</a><span id="shi-yong-fan-li">使用范例</span></h5><pre><code class="cpp">using zapi::ds::Variant;
+
+Varaint nullVar(nullptr);
+Variant numVar(123);
+Variant doubleVar(3.14);
+</code></pre><h5><a href="##zapi-ds-numericvariant" class="header-anchor">#</a><span id="zapi-ds-numericvariant">zapi::ds::NumericVariant</span></h5><p>根据上面讨论的，看着名字不用我说，大家都能猜出这个类的作用吧，没错，您猜的是对的，这个是对<code>zapi::ds::Variant</code>再次封装，为数值类型的<code>zapi::ds::Variant</code>提供数值计算的能力，比如四则运算, 大小比较运算。</p><h5><a href="##shi-yong-fan-li" class="header-anchor">#</a><span id="shi-yong-fan-li">使用范例</span></h5><pre><code class="cpp">using zapi::ds::NumericVariant;
+
+NumericVariant num1(123);
+NumericVariant num2(321);
+NumericVariant sum = num1 + num2;
+long rawSum = sum.toLong();
+bool cmp = num1 &lt; num2; // cmp is true
+
+std::int32_t raw32int1 = 123;
+std::int16_t raw32int2 = 23;
+NumericVariant num3(raw32int1); // value is 123
+NumericVariant num4(raw32int2); // value is 23
+sum = num3 + num4; // sum is 146
+</code></pre><blockquote><p><a href="/api/classzapi_1_1ds_1_1_numeric_variant.html">zapi::ds::NumericVariant 参考手册</a></p></blockquote><h5><a href="##zapi-ds-stringvariant" class="header-anchor">#</a><span id="zapi-ds-stringvariant">zapi::ds::StringVariant</span></h5><p>这个类跟<code>zapi::ds::NumericVariant</code>一样，看名字我们就知道这个类是为字符串操作而设计的，它为我们提供了常见的字符串接口，拼接，子串查找，替换等等。下面我们就举几个常见的使用的范例:</p><h5><a href="##shi-yong-fan-li" class="header-anchor">#</a><span id="shi-yong-fan-li">使用范例</span></h5><pre><code class="cpp">using zapi::ds::StringVariant;
+
+StringVariant str1(&quot;hello zapi&quot;); // str1 is hello zapi
+str1 += &quot;, hello&quot;; // now hello zapi, hello
+char c = str1[0]; // c is h
+std::string upperStr1 = str1.﻿toUpperCase();
+str1.﻿replace(&quot;zapi&quot;, &quot;zendAPI&quot;); // str1 is hello zendAPI, hello
+str1.prepend(&quot;=&gt; &quot;); // str1 now is =&gt; hello zendAPI, hello
+</code></pre><blockquote><p><a href="/api/classzapi_1_1ds_1_1_string_variant.html">zapi::ds::StringVariant 参考手册</a></p></blockquote><p>好了数据类型了解完毕，我们下面开始进入实现环节。</p><h4><a href="##di-yi-bu" class="header-anchor">#</a><span id="di-yi-bu">第一步</span></h4><p>打开<code>hellozapi</code>项目下的<code>hellozapi/defs.h</code>文件，在文件中输入我们的<code>C++</code>函数的原型声明代码。</p><pre><code class="cpp">﻿#ifndef ZAPI_HELLOZAPI_DEFS_H
+#define ZAPI_HELLOZAPI_DEFS_H
+
+﻿#include &quot;zapi/ZendApi.h&quot;
+
+using zapi::ds::Variant;
+using zapi::ds::﻿NumericVariant;
+using zapi::ds::StringVariant;
+
+void print_project_name(const StringVariant &amp;prefix);
+void print_develop_team();
+Variant get_version();
+Variant add_two_num(const ﻿NumericVariant &amp;num1, const ﻿NumericVariant &amp;num2);
+
+#endif // ZAPI_HELLOZAPI_DEFS_H
+</code></pre><h4><a href="##di-er-bu" class="header-anchor">#</a><span id="di-er-bu">第二步</span></h4><p>打开<code>hellozapi</code>项目下的<code>hellozapi/impls.cpp</code>文件，在文件中输入我们的<code>C++</code>函数的实现代码。</p><pre><code class="cpp">﻿#include &quot;defs.h&quot;
+#include &lt;iostream&gt;
+
+void print_project_name(const StringVariant &amp;prefix)
+{
+   zapi::out &lt;&lt; prefix &lt;&lt; &quot; &quot; &lt;&lt; &quot;hellozapi&quot; &lt;&lt; std::endl;
+}
+
+void print_develop_team()
+{
+   zapi::out &lt;&lt; &quot;qcoreteam&quot; &lt;&lt; std::endl;
+}
+
+Variant get_version()
+{
+   return &quot;v1.0.2&quot;;
+}
+
+Variant add_two_num(const NumericVariant &amp;num1, const NumericVariant &amp;num2)
+{
+   return num1 + num2;
+}
+</code></pre><h4><a href="##di-san-bu" class="header-anchor">#</a><span id="di-san-bu">第三步</span></h4><p>将我们的实现的<code>C++</code>函数与<code>zend engine</code>进行整合。打开我们的入口文件<code>hellozapi/entry.cpp</code>，输入我们的函数注册代码。</p><pre><code class="cpp">﻿#include &quot;zapi/ZendApi.h&quot;
+#include &quot;defs.h&quot;
+
+using zapi::lang::Constant;
+using zapi::lang::ValueArgument;
+
+extern &quot;C&quot; {
+
+ZAPI_DECL_EXPORT void *get_module() 
+{
+   static zapi::lang::Extension hellozapi(&quot;hellozapi&quot;, &quot;1.0&quot;);
+   Constant hellozapiVersionConst(&quot;HELLO_ZAPI_VERSION&quot;, 0x010002);
+   Constant hellozapiNameConst(&quot;HELLO_ZAPI_NAME&quot;, &quot;Hello zendAPI!&quot;);
+   Constant helloDebugModeConst(&quot;HELLO_DEBUG_MODE&quot;, true);
+   Constant helloPiConst(&quot;HELLO_ZAPI_PI&quot;, 3.14);
+   hellozapi.registerConstant(std::move(hellozapiVersionConst));
+   hellozapi.registerConstant(std::move(hellozapiNameConst));
+   hellozapi.registerConstant(std::move(helloDebugModeConst));
+   hellozapi.registerConstant(std::move(helloPiConst));
+
+   hellozapi.registerFunction&lt;decltype(print_project_name), print_project_name&gt;
+         (&quot;print_project_name&quot;, {
+             ValueArgument(&quot;prefix&quot;, zapi::lang::Type::String)
+          });
+   hellozapi.registerFunction&lt;decltype(print_develop_team), print_develop_team&gt;
+         (&quot;print_develop_team&quot;);
+   hellozapi.registerFunction&lt;decltype(get_version), get_version&gt;(&quot;get_version&quot;);
+   hellozapi.registerFunction&lt;decltype(add_two_num), add_two_num&gt;
+         (&quot;add_two_num&quot;, {
+             ValueArgument(&quot;num1&quot;, zapi::lang::Type::Numeric),
+             ValueArgument(&quot;num2&quot;, zapi::lang::Type::Numeric)
+          });
+   return hellozapi;
+}
+
+}
+</code></pre><p>到这里，代码稍稍有些复杂了，但是细心的同学会发现，其实代码是很有规律的，只是重复调用而已，在这段代码中我们引入了几个新的类型，下面我先将这样类型做些讲解，然后我们再对这个代码段进行解释。</p><h5><a href="##zapi-lang-type-lei-xing" class="header-anchor">#</a><span id="zapi-lang-type-lei-xing">zapi::lang::Type 类型</span></h5><p><code>zendAPI</code>对<code>zend engine</code>的宏类型定义重新用<code>enum class</code>进行了重新定义，方便实施<code>C++</code>的类型检查，比如常用的类型有：</p><ol><li>zapi::lang::Type::Undefined</li><li>zapi::lang::Type::Null</li><li>zapi::lang::Type::False</li><li>zapi::lang::Type::True</li><li>zapi::lang::Type::Long</li><li>zapi::lang::Type::String</li></ol><blockquote><p><a href="/api/namespacezapi_1_1lang.html#1a15bd083a614363a9decc92d672454ffa">zapi::lang::Type 参考手册</a></p></blockquote><h5><a href="##zapi-lang-valueargument-lei-xing" class="header-anchor">#</a><span id="zapi-lang-valueargument-lei-xing">zapi::lang::ValueArgument 类型</span></h5><p><code>zendAPI</code>支持的参数传递有两种，按值传参和按引用传参。<code>zapi::lang::ValueArgument</code>类型就是为了支持按值传递参数机制，它的构造函数很简单，第一个参数是传递的参数的名字，第二个参数是这个参数的类型，第三个参数设置这个参数是否是必须的参数。<br>比如下面的代码我们定义了一个名叫<code>arg1</code>的参数，类型是字符串并且是非必要参数</p><pre><code class="cpp">ValueArgument(&quot;arg1&quot;, zapi::lang::Type::String, false);
+</code></pre><blockquote><p><a href="/api/classzapi_1_1lang_1_1_value_argument.html">zapi::lang::ValueArgument 参考手册</a></p></blockquote><h5><a href="##zapi-lang-extension-registerfunction-han-shu-jie-kou" class="header-anchor">#</a><span id="zapi-lang-extension-registerfunction-han-shu-jie-kou">zapi::lang::Extension::registerFunction 函数接口</span></h5><p>为了支持不同类型的函数，<code>zapi::lang::Extension::registerFunction</code>被设计成了一个模板函数，在这篇文章中我们暂时使用了用于注册非成员函数指针的部分。<br>传递的模板参数有：</p><ol><li>函数的类型 (一般我们不定义函数的类型，使用<code>decltype</code>进行获取)</li><li>函数指针值 (会被<code>zendAPI</code>在运行时进行调用)</li></ol><blockquote><p><a href="http://en.cppreference.com/w/cpp/language/decltype" target="_blank" rel="external">decltype 参考手册</a></p></blockquote><p>传递的调用参数有：</p><ol><li>函数的名字</li><li>函数接受的参数列表<code>std::initializer_list&lt;zapi::lang::Argument&gt;</code></li></ol><p><em>这里的 zapi::lang::Argument 是 zapi::lang::ValueArgument 的基类，一般不直接使用。</em></p><blockquote><p><a href="/api/classzapi_1_1lang_1_1_extension.html#1a82065cc95e784e659a3cc697f34bfece">zapi::lang::Extension::registerFunction 参考手册</a><br><a href="http://en.cppreference.com/w/cpp/utility/initializer_list" target="_blank" rel="external">std::initializer_list 参考手册</a></p></blockquote><p>有了上面的背景知识，现在我们解释函数注册代码就简单多了，您也很容易就能理解。</p><pre><code class="cpp">hellozapi.registerFunction&lt;decltype(print_project_name), print_project_name&gt;
+      (&quot;print_project_name&quot;, {
+             ValueArgument(&quot;prefix&quot;, zapi::lang::Type::String)
+      });
+</code></pre><p>这行代码注册一个原型为<code>print_project_name($prefix);</code>的<code>PHP</code>函数，当这个函数被<code>zend engine</code>执行的时候，我们的<code>C++</code>函数<code>void print_project_name(const StringVariant &amp;prefix);</code>将被运行时调用。</p><pre><code class="cpp">hellozapi.registerFunction&lt;decltype(print_develop_team), print_develop_team&gt;
+     (&quot;print_develop_team&quot;);
+</code></pre><p>这行代码注册一个原型为<code>print_develop_team</code>的<code>PHP</code>函数，当这个函数被<code>zend engine</code>执行的时候，我们的<code>C++</code>函数<code>void print_develop_team();</code>将被运行时调用。</p><pre><code class="cpp">hellozapi.registerFunction&lt;decltype(get_version), get_version&gt;(&quot;get_version&quot;);
+</code></pre><p>这行代码注册一个原型为<code>get_version</code>的<code>PHP</code>函数，当这个函数被<code>zend engine</code>执行的时候，我们的<code>C++</code>函数<code>Variant get_version();</code>将被运行时调用。</p><pre><code class="cpp">hellozapi.registerFunction&lt;decltype(add_two_num), add_two_num&gt;
+     (&quot;add_two_num&quot;, {
+        ValueArgument(&quot;num1&quot;, zapi::lang::Type::Numeric),
+        ValueArgument(&quot;num2&quot;, zapi::lang::Type::Numeric)
+     });
+</code></pre><p>这行代码注册一个原型为<code>add_two_num</code>的<code>PHP</code>函数，当这个函数被<code>zend engine</code>执行的时候，我们的<code>C++</code>函数<code>Variant add_two_num(const ﻿NumericVariant &amp;num1, const ﻿NumericVariant &amp;num2);</code>将被运行时调用。</p><p>我们走到这里，函数注册就完成了，虽然有些小长，但是您不也坚持看完了吗？<br>下面让我们在<code>PHP</code>代码中愉快的进行调用吧。</p><pre><code class="php">&lt;?php
+if (function_exists(&quot;print_project_name&quot;)) {
+    print_project_name(&quot;nb, &quot;);
+}
+if (function_exists(&quot;﻿print_develop_team&quot;)) {
+    ﻿print_develop_team();
+}
+if (function_exists(&quot;﻿get_version&quot;)) {
+    $version = ﻿get_version();
+    echo $version;
+}
+echo &quot;\n&quot;;
+if (function_exists(&quot;﻿add_two_num&quot;)) {
+    $sum = ﻿add_two_num(1, 2);
+    echo $sum;
+}
+
+// you will get output:
+// nb, hellozapi
+// ﻿qcoreteam
+// ﻿v1.0.2
+// 3
+</code></pre><p>怎么样，实现函数也不过如此吧，根本没啥难度，哈哈哈，您到时候也能自豪的说，我也能没事的试试写写扩展啦，给<code>PHP</code>语言添加几个原生函数了。下一篇，我们来点更刺激的，教大家怎么实现原生的<code>Class</code>。</p></div><div id="SOHUCS"></div><script type="text/javascript">!function(){var t="prod_d0afdf75574bac597b6f6d02cf698bd1";(window.innerWidth||document.documentElement.clientWidth)<960?window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=cythpQTHy&conf='+t+'"><\/script>'):function(t,e){var n=document.getElementsByTagName("head")[0]||document.head||document.documentElement,a=document.createElement("script");a.setAttribute("type","text/javascript"),a.setAttribute("charset","UTF-8"),a.setAttribute("src","http://qn.apkfuns.com/changyan/changyan.js"),"function"==typeof e&&(window.attachEvent?a.onreadystatechange=function(){var t=a.readyState;"loaded"!==t&&"complete"!==t||(a.onreadystatechange=null,e())}:a.onload=e),n.appendChild(a)}(0,function(){window.changyan.api.config({appid:"cythpQTHy",conf:t})})}()</script></div></div></div></div><script>$(function(){$(document).ready(function(){$("pre code").each(function(c,n){hljs.highlightBlock(n)})})})</script><div id="footer-wrapper"><div class="footer uk-text-center"><div>Copyright © 2016-2017 ZZU_SOFTBOY</div><div><a href="http://www.miitbeian.gov.cn/" target="_Blank">京ICP备17044371号-1</a></div></div></div><div id="offcanvas-push" uk-offcanvas="mode: slide; overlay: true"><div class="uk-offcanvas-bar" id="sidebar"><button class="uk-offcanvas-close" type="button" uk-close></button><div class="menu-container"><ul class="uk-text-left uk-width-1-1"><li class="uk-width-1-1"><a href="/">网站首页</a></li><li class="uk-width-1-1"><a href="/manual">手册</a></li><li class="uk-width-1-1"><a href="/api">API文档</a></li><li class="uk-width-1-1"><a href="/blog">博客</a></li><li class="uk-width-1-1"><a href="/about">关于我们</a></li></ul><div class="uk-panel"><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">序言</li><li><a href="/manual/0.0.1/prologue/introduction.html">zendAPI 项目介绍</a></li><li><a href="/manual/0.0.1/prologue/releasenotes.html">版本发布说明</a></li><li><a href="/manual/0.0.1/prologue/repobranchdesc.html">版本库分支标准</a></li><li><a href="/manual/0.0.1/prologue/contributionguide.html">如何贡献代码</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">编译与部署</li><li><a href="/manual/0.0.1/compileanddeploy/dependdesc.html">依赖环境详细说明</a></li><li><a href="/manual/0.0.1/compileanddeploy/preparedevelhost.html">开发环境构建</a></li><li><a href="/manual/0.0.1/compileanddeploy/cmakevardesc.html">CMake 参数详解</a></li><li><a href="/manual/0.0.1/compileanddeploy/compilezendapi.html">编译 zendAPI</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">新手学堂</li><li><a href="/manual/0.0.1/getstarted/prenewproject.html">项目准备工作</a></li><li><a href="/manual/0.0.1/getstarted/buildscriptdesc.html">项目编译脚本详解</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapientry.html">定义模块入口</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiconst.html">定义常量</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapifunction.html">定义原生函数</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapiclass.html">自定义原生Class</a></li><li><a href="/manual/0.0.1/getstarted/definehellozapinamespace.html">引入命名空间</a></li><li><a href="/manual/0.0.1/getstarted/registerinivars.html">注册 INI 变量</a></li><li><a href="/manual/0.0.1/getstarted/installhellozapiproject.html">安装 hello zapi 项目</a></li><li><a href="/manual/0.0.1/getstarted/installbydocker.html">使用 Docker 进行体验</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">zendAPI 设计解析</li><li><a href="/manual/0.0.1/zendapidesignentry/vocabularydesc.html">术语解释</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiwholedesign.html">整体架构设计解剖</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapinamespacedesc.html">命名空间说明</a></li><li><a href="/manual/0.0.1/zendapidesignentry/phpmoduleinitcycle.html">PHP 标准模块生命周期</a></li><li><a href="/manual/0.0.1/zendapidesignentry/zendapiinitcycle.html">初始化流程详解</a></li><li><a href="/manual/0.0.1/zendapidesignentry/datasturcturedesign.html">常见数据类型设计</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonfunctiondispatch.html">普通函数派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/commonmethoddispatch.html">类方法派发机制</a></li><li><a href="/manual/0.0.1/zendapidesignentry/internalinterfaceimplemention.html">内部接口的实现</a></li><li><a href="/manual/0.0.1/zendapidesignentry/stddatastream.html">标准数据输出流</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">扩展模块详解</li><li><a href="/manual/0.0.1/moduleinitentry/defineextmodule.html">定义扩展模块</a></li><li><a href="/manual/0.0.1/moduleinitentry/moduleinitcallback.html">模块初始化回调函数</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">命名空间</li><li><a href="/manual/0.0.1/namespacedefentry/definenamespace.html">定义命名空间</a></li><li><a href="/manual/0.0.1/namespacedefentry/namespaceapply.html">命名空间的运用</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">常量定义</li><li><a href="/manual/0.0.1/rawconstdefentry/rawconstdef.html">常量定义</a></li><li><a href="/manual/0.0.1/rawconstdefentry/constandnamespace.html">常量与命名空间</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">PHP 常见数据类型</li><li><a href="/manual/0.0.1/commondatastureentry/generalvarwrapper.html">通用变量容器</a></li><li><a href="/manual/0.0.1/commondatastureentry/boolvariantwrapper.html">布尔数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/numericvariantwrapper.html">整型数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/stringvariantwrapper.html">字符串数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/arrayvariantwrapper.html">数组数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/floatvariantwrapper.html">浮点数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/functionvariantwrapper.html">函数数据类型</a></li><li><a href="/manual/0.0.1/commondatastureentry/objectvariantwrapper.html">对象数据类型</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">原生函数定义</li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionoverview.html">函数概述</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/argumentoffunction.html">函数参数定义</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionreturn.html">函数返回值</a></li><li><a href="/manual/0.0.1/internalfuncdefineentry/functionandnamespace.html">函数与命名空间</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">面向对象特性支持</li><li><a href="/manual/0.0.1/oopfeaturesupportentry/simpleclassdefine.html">类入门定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classpropertydefine.html">类属性定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmethoddefine.html">类方法定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classmagicsupport.html">魔术方法支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/abstractclassandmethod.html">抽象类和抽象方法的定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/finalclassdef.html">final 类定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classextenddef.html">类继承定义</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classarrayacesssupport.html">类自定义 ArrayAccess 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classiteratorsupport.html">类迭代器支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classcountablesupport.html">countable 支持</a></li><li><a href="/manual/0.0.1/oopfeaturesupportentry/classsserializablesupport.html">类序列化/反序列化支持</a></li></ul><ul class="uk-nav uk-nav-default tm-nav uk-margin-top"><li class="uk-nav-header">扩展配置支持</li><li><a href="/manual/0.0.1/extconfigsupportentry/definiconfig.html">定义 INI 配置</a></li></ul></div></div></div></div></div><script type="text/javascript" async src="http://s13.cnzz.com/z_stat.php?id=1264578420"></script><script type="text/javascript" async src="http://c.cnzz.com/core.php?web_id=1264578420&t=z"></script></body></html>
